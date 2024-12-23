@@ -1,9 +1,10 @@
 import React from 'react'
 import './index.css'
+import LandingPage from './Pages/LandingPage'
 const App = () => {
   return (
     <div>
-      This is my App
+      <LandingPage/>
     </div>
   )
 }
