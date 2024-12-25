@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className="relative">
-      <div className="absolute z-40 flex items-center justify-between w-full py-3 md:px-7 px-4">
+      <div className="absolute z-40 flex items-center justify-between overflow-hidden w-full py-3 md:px-7 px-4">
         
         <span className="text-white flex items-center font-semibold space-x-3">
           <img className="h-10" src={logo} alt="Quick-Vote Logo" />
