@@ -12,7 +12,7 @@ const LandingPage = () => {
   ]
   return (
     <div>
-      <div className="flex items-center md:flex-row gap-2 px-4 py-4 flex-col">
+      <div className="flex items-center md:flex-row gap-2 px-10 py-4 flex-col">
         {/* Text Section with Motion Effects */}
         <motion.div
           className="flex md:gap-10 gap-3 flex-col md:text-left text-center"
@@ -21,19 +21,19 @@ const LandingPage = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="md:text-6xl text-4xl text-primary font-bold">
-            Ivote Online Voting System
+          <h2 className="md:text-6xl text-4xl  text-center w-[60%] mx-auto text-primary font-bold">
+            Evolve Your Way Of Decision With Ivote Online Voting System
           </h2>
-          <p className="leading-loose md:pr-5 pr-10">
+          {/* <p className="leading-loose md:pr-5">
             Let’s revolutionize the voting process by making it simpler, faster, and more accessible for everyone. With
             cutting-edge technology and user-friendly tools, we aim to empower individuals to participate seamlessly in
             elections, ensuring every voice is heard and every vote is securely counted. Together, we can reshape the
             future of voting.
-          </p>
+          </p> */}
         </motion.div>
 
         
-        <motion.img
+        {/* <motion.img
           className="rounded-lg"
           src={img1}
           alt="Voting system illustration"
@@ -41,7 +41,7 @@ const LandingPage = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-        />
+        /> */}
       </div>
 
       <div className='bg-primary py-3 flex items-center justify-between px-6  '>
