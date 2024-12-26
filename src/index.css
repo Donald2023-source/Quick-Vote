@@ -7,3 +7,15 @@ body {
   font-optical-sizing: auto;
 }
 
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: linear-gradient(to top, #1e3a8a, #3b82f6);
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: -1; /* Ensures it stays behind the navbar */
+}

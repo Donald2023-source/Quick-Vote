@@ -1,61 +1,52 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import logo from '../assets/pngegg.png';
-import MenuIcon from '@mui/icons-material/Menu';
+import logo from '../assets/logo.png';
+import { Link } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu'; // For the hamburger menu icon
 
 const Navbar = () => {
-  const location = useLocation();
-  const [nav, setNav] = useState(false);
+  const [nav, setNav] = useState(false); // State for toggling the mobile menu visibility
+
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact Us', href: '/contact-us' },
+    { name: 'FAQs', href: '/faqs' },
+  ];
 
   return (
-    <nav className="relative">
-      <div className="absolute z-40 flex items-center justify-between overflow-hidden w-full py-3 md:px-7 px-4">
-        
-        <span className="text-white flex items-center font-semibold space-x-3">
-          <img className="h-10" src={logo} alt="Quick-Vote Logo" />
-          <h2 className="text-lg">Quick-Vote</h2>
-        </span>
+    <nav className='relative'>
+      {/* Wave Background */}
+      <div>
+        <svg className='absolute z-0 md:-top-[50px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#525BC3" fillOpacity="0.9" d="M0,160L60,149.3C120,139,240,117,360,133.3C480,149,600,203,720,240C840,277,960,299,1080,272C1200,245,1320,171,1380,133.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+        </svg>
+      </div>
 
-        {/* Hamburger Menu for mobile */}
+      {/* Navbar Content */}
+      <div className='relative h-full z-10 flex items-center justify-between px-8 py-4'>
+        <img className='h-10' src={logo} alt="Logo" />
+
+        {/* Hamburger Menu for Mobile */}
         <span
           onClick={() => setNav(!nav)}
-          className="text-white md:hidden cursor-pointer"
+          className='text-white md:hidden cursor-pointer'
         >
           <MenuIcon />
         </span>
 
-        {/* Navigation Links */}
+        {/* Navigation Links for Desktop and Mobile */}
         <div
           className={`${
-            nav
-              ? 'translate-x-0 opacity-100' 
-              : 'translate-x-full opacity-0'
-          } md:translate-x-0 md:opacity-100 flex flex-col absolute md:relative md:top-0 lg:left-0 top-20 right-5 items-center gap-5 text-white transition-all transform md:flex-row md:flex`}
+            nav ? 'left-0 opacity-100' : 'left-full opacity-0'
+          } md:opacity-100 md:left-0 flex items-center justify-center gap-10 h-screen md:h-auto md:flex-row flex-col absolute top-0 left-0 w-full bg-blue-500 transition-all duration-300 ease-in-out`}
         >
-          {/* Home Link */}
-          <li
-            className={`list-none ${
-              location.pathname === '/' ? 'border-b-2 font-semibold' : 'text-white'
-            }`}
-          >
-            <a href="/">Home</a>
-          </li>
-          {/* About Link */}
-          <li
-            className={`list-none ${
-              location.pathname === '/about' ? 'border-b-2 font-semibold' : 'text-white'
-            }`}
-          >
-            <a href="/about">About</a>
-          </li>
-          {/* Vote Link */}
-          <li
-            className={`list-none ${
-              location.pathname === '/vote' ? 'border-b-2 font-semibold' : 'text-white'
-            }`}
-          >
-            <a href="/vote">Vote</a>
-          </li>
+          {navLinks.map(link => (
+            <Link key={link.name} to={link.href} className="text-white hover:underline">
+              {link.name}
+            </Link>
+          ))}
+          <button className='py-3 px-6 text-white rounded-lg bg-[#343da3d2]'>Get Started</button>
+          <h2 onClick={() => setNav(false)} className='absolute top-4  right-10 font-bold text-white text-lg cursor-pointer'>X</h2>
         </div>
       </div>
     </nav>
