@@ -2,6 +2,10 @@ import React from 'react';
 import Navbar from '../Components/Navbar';
 import img1 from '../assets/istockphoto-1269463469-612x612.jpg';
 import { motion } from 'framer-motion';
+import img2 from '../assets/image 1.jpg'
+import img3 from '../assets/Image 2.jpg'
+import img4 from '../assets/Image 3.jpg'
+import img5 from '../assets/Image 4.jpg'
 
 const LandingPage = () => {
 
@@ -12,7 +16,15 @@ const LandingPage = () => {
   ]
   return (
     <div>
-      <div className="flex items-center md:flex-row gap-2 px-10 py-4 flex-col">
+
+      <div className='absolute top-0'>
+          <img src={img2} alt='img' />
+      </div>
+
+
+
+
+      <div className="flex items-center md:flex-row gap-2 md:px-7 px-4 py-4 flex-col">
         {/* Text Section with Motion Effects */}
         <motion.div
           className="flex md:gap-10 gap-3 flex-col md:text-left text-center"
@@ -21,19 +33,19 @@ const LandingPage = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="md:text-6xl text-4xl  text-center w-[60%] mx-auto text-primary font-bold">
-            Evolve Your Way Of Decision With Ivote Online Voting System
+          <h2 className="md:text-6xl text-4xl text-primary font-bold">
+            Ivote Online Voting System
           </h2>
-          {/* <p className="leading-loose md:pr-5">
+          <p className="leading-loose md:pr-5 text-sm">
             Let’s revolutionize the voting process by making it simpler, faster, and more accessible for everyone. With
             cutting-edge technology and user-friendly tools, we aim to empower individuals to participate seamlessly in
             elections, ensuring every voice is heard and every vote is securely counted. Together, we can reshape the
             future of voting.
-          </p> */}
+          </p>
         </motion.div>
 
         
-        {/* <motion.img
+        <motion.img
           className="rounded-lg"
           src={img1}
           alt="Voting system illustration"
@@ -41,10 +53,10 @@ const LandingPage = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-        /> */}
+        />
       </div>
 
-      <div className='bg-primary py-3 flex items-center justify-between px-6  '>
+      <div className='bg-primary py-3 flex md:flex-row flex-col items-center justify-between px-7  '>
         {
           steps.map((item, idx) => (
             <div className={`${item.role === 'SIGN UP' ? 'bg-blue-200 rounded-lg shadow-xl' : 'text-white'} px-4 py-20`} key={idx}>

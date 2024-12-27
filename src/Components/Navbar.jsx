@@ -15,7 +15,7 @@ const Navbar = () => {
   const path = useLocation();
 
   return (
-    <nav className="bg-gradient-to-r from-[#29349D] to-blue-500 p-4">
+    <nav className="backdrop-blur-lg bg-[#00000083] z-40 relative p-4">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <h3 className="text-white border py-2 px-4 rounded-full w-fit font-bold text-xl">
