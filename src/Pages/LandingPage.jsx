@@ -1,74 +1,85 @@
-import React from 'react';
-import Navbar from '../Components/Navbar';
-import img1 from '../assets/istockphoto-1269463469-612x612.jpg';
-import { motion } from 'framer-motion';
-import img2 from '../assets/image 1.jpg'
-import img3 from '../assets/Image 2.jpg'
-import img4 from '../assets/Image 3.jpg'
-import img5 from '../assets/Image 4.jpg'
-
+import React from 'react'
+import img1 from '../assets/istockphoto-1269463469-612x612.jpg'
+import img2 from '../assets/Work Together Image.png'
+import img3 from '../assets/13038.jpg'
+import img4 from '../assets/Accessibility.png'
+import img5 from '../assets/Reliability.webp'
+import img6 from '../assets/Availability.png'
+import { motion } from 'framer-motion'
 const LandingPage = () => {
-
-  const steps = [
-    { name: 'Step 1', role: 'SIGN UP', text: 'Create an account on this System to vote.'},
-    { name: 'Step 2', role: 'VOTE', text: 'Vote you preffered candidate.'},
-    { name: 'Step 3', role: 'VIEW ELECTION RESULTS', text: 'View election results of various candidates.'},
-  ]
   return (
     <div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}>
+            <div className='w-full h-[90vh] absolute top-0 bg-primary'/>
+            
+            <div className='absolute text-white flex justify-center items-center gap-5 py-6'>
+                <div className='w-[40%] space-y-4 flex flex-col items-start'>
+                  <h2 className='font-bold text-4xl'>Get More With Ivote Voting System</h2>
+                  <p className='leading-loose'>The iVote system is an innovative electronic voting solution designed to simplify and secure the electoral process. It combines technology and user-centric design to ensure a transparent, efficient, and reliable voting experience</p>
 
-      <div className='absolute top-0'>
-          <img src={img2} alt='img' />
-      </div>
-
-
-
-
-      <div className="flex items-center md:flex-row gap-2 md:px-7 px-4 py-4 flex-col">
-        {/* Text Section with Motion Effects */}
-        <motion.div
-          className="flex md:gap-10 gap-3 flex-col md:text-left text-center"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="md:text-6xl text-4xl text-primary font-bold">
-            Ivote Online Voting System
-          </h2>
-          <p className="leading-loose md:pr-5 text-sm">
-            Let’s revolutionize the voting process by making it simpler, faster, and more accessible for everyone. With
-            cutting-edge technology and user-friendly tools, we aim to empower individuals to participate seamlessly in
-            elections, ensuring every voice is heard and every vote is securely counted. Together, we can reshape the
-            future of voting.
-          </p>
-        </motion.div>
-
-        
-        <motion.img
-          className="rounded-lg"
-          src={img1}
-          alt="Voting system illustration"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        />
-      </div>
-
-      <div className='bg-primary py-3 flex md:flex-row flex-col items-center justify-between px-7  '>
-        {
-          steps.map((item, idx) => (
-            <div className={`${item.role === 'SIGN UP' ? 'bg-blue-200 rounded-lg shadow-xl' : 'text-white'} px-4 py-20`} key={idx}>
-                <h4 className='text-primary/50'>{item.name}</h4>
-                <h1 className={`font-bold text-xl  ${item.role === 'SIGN UP'? 'text-primary' : 'text-white '}`}>{item.role}</h1>
-                <p className='text-lg'>{item.text}</p>  
+                  <button className='border py-2 hover:scale-105 transition-all px-5 rounded'>Get started</button>
+                </div>
+                
+                <img src={ img1 } alt='Vote' />
             </div>
-          ))
-        }
-      </div>
-    </div>
-  );
-};
+            
+        </motion.div>
+        <div className='absolute top-[100%] mt-3'>
+          <motion.div initial={{ x: -100}} animate={{ x: 0}} transition={{ duration: 1.5}} className='flex justify-between p-20 gap-24 items-center'>
+            <img className='h-96' src={ img2 } alt='alt'/>
+            <div className='w-[48%] space-y-7'>
+              <h2 className='font-bold text-3xl'>Make your Decision Smartly With Ivote</h2>
+              <p className='leading-loose'>Choosing the right voting platform is crucial for ensuring a smooth, secure, and inclusive voting experience. iVote emerges as a compelling option due to its innovative approach to modern voting needs. The platform offers a combination of user-friendly design, robust security features, and scalability, making it ideal for organizations, institutions, or governments aiming to streamline their electoral processes.</p>
+            </div>
+          </motion.div>
 
-export default LandingPage;
+          <div className='bg-primary w-full text-white my-5 flex items-center justify-between mx-auto gap-20 p-20'>
+              <div className='space-y-6'>
+                  <h2 className='text-3xl font-bold'>Make Your Vote Count</h2>
+                  <p>Make your vote Count with Ivote. We are Reliable</p>
+              </div>
+
+              <img className='h-96' src={ img3 } alt=''/>
+          </div>
+
+
+          <div>
+              <div className='flex p-10 gap-10'>
+                  <div className='flex flex-col items-center w-[50%] shadow-xl py-8 px-4 gap-2 rounded-lg'>
+                      <img className='h-14 rounded-full' src={ img4 } alt='' />
+                      <h2 className='text-lg font-bold'>Accessibility</h2>
+                      <p className='text-center'>iVote creates a platform where all users, regardless of ability, can participate in the democratic process with confidence and ease. Its commitment to accessibility ensures equitable and barrier-free voting for everyone.</p>
+                  </div>
+
+                  <div className='flex flex-col bg-primary/30 items-center shadow-lg py-8 px-4 justify-center gap-2 rounded-lg w-[50%]'>
+                      <img className='h-14 rounded-full' src={ img5 } alt='' />
+                      <h2 className='text-lg font-bold'>Reliability</h2>
+                      <p className='text-center'>iVote ensures reliability through secure data handling, robust infrastructure, redundancy systems, transparent processes.</p>
+                  </div>
+
+                  <div className='flex flex-col items-center py-8 shadow-xl rounded-lg justify-center gap-2 px-4 w-[50%]'>
+                      <img className='h-14 rounded-full' src={ img6 } alt='' />
+                      <h2 className='text-lg font-bold'>Accessibility</h2>
+                      <p className='text-center'>iVote ensures accessibility with user-friendly design, assistive technology support, multi-language options, and device compatibility.</p>
+                  </div>
+              </div>
+          </div>
+
+
+          <div className='p-20 bg-primary text-white flex  items-center justify-between'>
+              <div className='space-y-5'>
+                  <h2 className='text-3xl font-semibold'>Subscribe to our NewsLetter</h2>
+                  <p>Stay updated with our latext News</p>
+              </div>
+
+              <input className='p-3 w-96 text-black bg-white/80 outline-none rounded-lg' type="text" placeholder='Please enter Your email' />
+          </div>
+        </div>
+    </div>
+  )
+}
+
+export default LandingPage
