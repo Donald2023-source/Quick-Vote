@@ -88,8 +88,8 @@ const LandingPage = () => {
           </div>
 
 
-          <div className='md:p-20 py-12 relative md:px-14 px-10 bg-primary flex flex-col'>
-            <div  className='text-white'>
+          <div className='md:p-20 py-12 relative md:px-20 px-10 bg-primary flex flex-col'>
+            <div  className='text-white flex md:flex-row flex-col items-center justify-between'>
                 <div className='space-y-6'>
                     <h2 className='text-3xl font-semibold'>Subscribe to our NewsLetter</h2>
                     <p className='pb-5'>Stay updated with our latext News</p>
@@ -99,7 +99,7 @@ const LandingPage = () => {
             </div>
 
             <hr className='text-white mx-20 my-10' />
-            <p className='md:px-14 px-3 my-2 py-5 text-white'>© 2024 iVote. All rights reserved.</p>
+            <p className='md:px-3 px-3 my-2 py-5 text-white'>© 2024 iVote. All rights reserved.</p>
           </div>
 
          
