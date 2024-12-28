@@ -3,6 +3,7 @@ import './index.css'
 import LandingPage from './Pages/LandingPage'
 import { BrowserRouter, Router, Routes, Route } from 'react-router-dom'
 import Landinglayout from './Layouts/Landinglayout'
+import Contact from './Pages/Contact'
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Landinglayout><LandingPage/></Landinglayout>}/>
+          <Route path='/contact-us' element={<Landinglayout><Contact/></Landinglayout>}/>
         </Routes>
       </BrowserRouter>
 

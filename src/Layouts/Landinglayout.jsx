@@ -8,7 +8,9 @@ const Landinglayout = ({ children }) => {
       <Navbar />
         {children}
       
-      <Footer/>
+      <span className='relative bottom-3 h-full flex items-end'>
+        <Footer/>
+      </span>
     </div>
   )
 }

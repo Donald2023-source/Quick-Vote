@@ -88,7 +88,7 @@ const LandingPage = () => {
           </div>
 
 
-          <div className='md:p-20 py-12 px-10 bg-primary text-white flex md:flex-row flex-col md:items-center gap-10'>
+          <div className='md:p-20 py-12 md:px-4 px-10 bg-primary text-white flex md:flex-row flex-col md:items-center gap-10'>
               <div className='space-y-5'>
                   <h2 className='text-3xl font-semibold'>Subscribe to our NewsLetter</h2>
                   <p>Stay updated with our latext News</p>
