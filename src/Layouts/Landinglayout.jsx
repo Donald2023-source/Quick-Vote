@@ -1,18 +1,15 @@
-import React from 'react'
-import Navbar from '../Components/Navbar'
-import Footer from '../Components/Footer'
+import React from 'react';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 
 const Landinglayout = ({ children }) => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-        {children}
-      
-      <span className='relative bottom-3 h-full flex items-end'>
-        <Footer/>
-      </span>
+      <main className="flex-grow">{children}</main> 
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Landinglayout
+export default Landinglayout;

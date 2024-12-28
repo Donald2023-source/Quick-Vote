@@ -3,6 +3,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import Navbar from '../Components/Navbar';
 const Contact = () => {
 
     const contactData = [
@@ -22,6 +23,7 @@ const Contact = () => {
 
   return (
     <div >
+        <Navbar/>
       <div className='bg-gradient-to-r from-primary to-primary/70 h-full w-full absolute z-10 inset-0'>
         <div className='relative z-50 text-white h-full flex flex-col items-center justify-center left-0 right-0 px-20 py-10'>
             <div className='flex justify-center md:gap-10 gap-6'>
