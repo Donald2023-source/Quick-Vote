@@ -89,17 +89,17 @@ const LandingPage = () => {
 
 
           <div className='md:p-20 py-12 relative md:px-14 px-10 bg-primary flex flex-col'>
-            <div  className='md:p-20 py-12 relative md:px-14 px-10 bg-primary text-white flex md:flex-row flex-col md:items-center justify-between gap-10'>
-                <div className='space-y-5'>
+            <div  className='text-white'>
+                <div className='space-y-6'>
                     <h2 className='text-3xl font-semibold'>Subscribe to our NewsLetter</h2>
-                    <p>Stay updated with our latext News</p>
+                    <p className='pb-5'>Stay updated with our latext News</p>
                 </div>
 
                 <input className='p-3 md:w-96 w-72 text-black bg-white/80 outline-none rounded-lg' type="text" placeholder='Please enter Your email' />
             </div>
 
-            <hr className='text-white mx-20' />
-            <p className='px-14 my-2 py-5 text-white'>© 2024 iVote. All rights reserved.</p>
+            <hr className='text-white mx-20 my-10' />
+            <p className='md:px-14 px-3 my-2 py-5 text-white'>© 2024 iVote. All rights reserved.</p>
           </div>
 
          
