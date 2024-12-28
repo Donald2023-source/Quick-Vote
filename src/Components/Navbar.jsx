@@ -6,16 +6,14 @@ import { useState } from "react";
 const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
     { name: 'Contact us', href: '/contact-us' },
-    { name: 'FAQs', href: '/faqs' },
   ];
 
   const [nav, setNav] = useState(false);
   const path = useLocation();
 
   return (
-    <nav className="relative backdrop-blur-lg z-30 p-4 px-20">
+    <nav className="relative backdrop-blur-lg z-30 p-4 lg:px-20 md:px-10">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <h3 className="text-white border py-2 px-4 rounded-full w-fit font-bold text-xl">
