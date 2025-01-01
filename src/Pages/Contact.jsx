@@ -29,10 +29,10 @@ const Contact = () => {
             <div className='flex justify-center md:gap-10 gap-6'>
                 {
                    
-                    contactData.map((item, idx) => {
+                    contactData.map((item) => {
                         const isActive = visible === item.text;
                         return (
-                            <div onClick={() => handleClick(item.id)}>
+                            <div key={item.id} onClick={() => handleClick(item.id)}>
                                 <item.icon className={`shadow-lg hover:scale-105 transition cursor-pointer bg-[#36363873] ease-in-out duration-300 backdrop-blur-lg py-2 rounded-lg ${isActive ? 'bg-black' : ''}`} sx={{fontSize: '60px'}}/>
                                 
                             </div>
