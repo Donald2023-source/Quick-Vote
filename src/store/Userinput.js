@@ -19,14 +19,17 @@ const userInputSlice = createSlice({
             state[field] = value
         },
 
-        clearInput: {
-            fullName: '',
-            passport: '',
-            email: '',
-            stateOfOrigin: '',
-            localGovernment: '',
-            DOB: '',
-            NIN: '' 
+        clearInput: (state) => {
+            state.fullName = '',
+            state.passport = '',
+            state.email = '',
+            state.stateOfOrigin = '',
+            state.localGovernment = '',
+            state.DOB = '',
+            state.NIN = '' 
         }
     }
 })
+
+export const { clearInput, updateInput } = userInputSlice.actions;
+export default userInputSlice.reducer
