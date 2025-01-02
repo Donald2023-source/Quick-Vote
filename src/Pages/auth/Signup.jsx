@@ -4,12 +4,13 @@ import React, { useEffect, useState } from 'react'
 const Signup = () => {
 
     const [data, setData] = useState([])
-
+    
 
     const fetchStates = async() => {
         try {
             const response = await axios.get('https://nga-states-lga.onrender.com/fetch')
-            console.log(response)
+            console.log(response.data)
+            setData(response.data)
         } catch(error) {
             console.error(error.message)
         }   
@@ -27,8 +28,28 @@ const Signup = () => {
         </div>
 
         <div>
+            <h2>Get Started</h2>
             <form>
-                <h2>Get Started</h2>
+                <fieldset className='h-32 w-32 flex flex-col justify-center'>
+                    <label className='border h-full flex items-center justify-center cursor-pointer' htmlFor='file'>Passport</label>
+                    <input className='hidden' id='file' type="file" />
+                </fieldset>
+
+                <fieldset className='flex gap-5'>
+                    <input className='py-2 px-4 rounded border outline-none' type="text" placeholder='Please enter your Fullname' />
+                    <select name="" id="">
+                        <option value="">Please select your state of origin</option>
+                        {data.map((state) => (
+                                <option>{state}</option>
+                            ))}
+                    </select>
+                </fieldset>
+
+                <fieldset className='flex gap-5'>
+                    <input className='py-2 px-4 rounded border outline-none' type="text" placeholder='Please enter your Fullname' />
+                    <input className='py-2 px-4 rounded border outline-none' type="number" placeholder='DOB' />
+                </fieldset>
+                    
             </form>
         </div>
     </div>
