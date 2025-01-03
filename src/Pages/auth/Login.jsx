@@ -25,7 +25,7 @@ const Login = () => {
     <div className="bg-primary flex items-center justify-center h-screen w-full overflow-hidden">
       <div className="bg-white w-[90%] md:w-[70%] lg:w-[70%] h-[96%] flex flex-col items-center md:flex-row rounded-lg shadow-lg overflow-hidden">
         {/* Image Section */}
-        <div className="h-40 md:h-full md:w-[40%] flex-shrink-0">
+        <div className="h-40 md:h-full w-full md:w-[40%] flex-shrink-0">
           <img
             className="object-cover h-full w-full rounded-t-lg md:rounded-t-none md:rounded-l-lg"
             src={img1}
@@ -50,6 +50,7 @@ const Login = () => {
                 name="voterId"
                 value={voterId}
                 onChange={handleChange}
+                placeholder="NG144"
                 required
               />
             </fieldset>
@@ -62,6 +63,7 @@ const Login = () => {
                 name="password"
                 value={password}
                 onChange={handleChange}
+                placeholder="*****"
                 required
               />
             </fieldset>
