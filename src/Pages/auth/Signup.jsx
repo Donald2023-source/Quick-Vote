@@ -10,7 +10,7 @@ const Signup = () => {
   const dispatch = useDispatch()
 
   const { fullname, StateOfOrigin, email} = useSelector((state) => state.userInput)
-
+  
   const fetchStates = async () => {
     try {
       const response = await axios.get(
@@ -101,6 +101,8 @@ const Signup = () => {
                 <input
                   className="border w-full py-2 px-4 outline-none rounded"
                   type="text"
+                  name={fullname}
+                  onChange={handleChange}
                   placeholder="Desmond Yusuf"
                 />
               </fieldset>
@@ -110,6 +112,8 @@ const Signup = () => {
                 <input
                   className="border w-full py-2 px-4 outline-none rounded"
                   type="email"
+                  name={email}
+                  onChange={handleChange}
                   placeholder="desmond234@gmail.com"
                 />
               </fieldset>
@@ -118,9 +122,9 @@ const Signup = () => {
             {/* State of Origin */}
             <fieldset className="flex flex-col">
               <label className="font-semibold">State of Origin</label>
-              <select
+              <select onChange={handleChange}
                 className="outline-none cursor-pointer border py-2 px-4 rounded w-full"
-                name="state"
+                name={StateOfOrigin}
                 id=""
               >
                 <option value="">Select State of Origin</option>
