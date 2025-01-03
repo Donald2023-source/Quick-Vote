@@ -6,6 +6,7 @@ import img4 from '../assets/Accessibility.png'
 import img5 from '../assets/Reliability.webp'
 import img6 from '../assets/Availability.png'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 const LandingPage = () => {
   return (
     <div>
@@ -20,7 +21,7 @@ const LandingPage = () => {
                   <h2 className='font-bold text-4xl'>Get More With Ivote Voting System</h2>
                   <p className='leading-loose text-sm'>The iVote system is an innovative electronic voting solution designed to simplify and secure the electoral process. It combines technology and user-centric design to ensure a transparent, efficient, and reliable voting experience</p>
 
-                  <button className='border py-2 hover:scale-105 transition-all px-5 rounded'>Get started</button>
+                  <Link to={'/auth/signup'} className='border py-2 hover:scale-105 transition-all px-5 rounded'>Get started</Link>
                 </div>
                 
                 <img className='md:h-80 h-fit md:w-fit w-80' src={ img1 } alt='Vote' />

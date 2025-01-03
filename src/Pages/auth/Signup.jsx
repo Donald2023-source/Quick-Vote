@@ -78,7 +78,7 @@ const Signup = () => {
     </div>
 
     {/* Form Section */}
-    <div className="p-6 md:py-3 md:px-10 flex-1 overflow-y-auto">
+    <div className="p-6 md:py-5 md:px-10 flex-1 overflow-y-auto">
       <h2 className="text-xl md:text-2xl font-bold mb-2">SIGN UP</h2>
       <p className="text-gray-600">Please fill in the form below.</p>
       <Link to={'/auth/login'} className="text-primary font-bold mb-4 cursor-pointer">Already Have voter Id? Login</Link>
