@@ -67,7 +67,7 @@ const Signup = () => {
 
   return (
     <div className="bg-primary flex items-center justify-center h-screen w-full overflow-hidden">
-  <div className="bg-white w-[90%] md:w-[70%] lg:w-[70%] h-[98%] flex flex-col md:flex-row rounded-lg shadow-lg overflow-hidden">
+  <div className="bg-white w-[100%] md:w-[70%] lg:w-[70%] h-[98%] flex flex-col md:flex-row rounded-lg shadow-lg overflow-hidden">
     {/* Image Section */}
     <div className="h-40 md:h-full w-full md:w-[40%] flex-shrink-0">
       <img
