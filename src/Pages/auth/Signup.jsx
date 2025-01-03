@@ -3,6 +3,7 @@ import img1 from "../../assets/6931402.jpg";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { updateInput } from "../../store/Userinput";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [data, setData] = useState([]); // States list
@@ -66,7 +67,7 @@ const Signup = () => {
 
   return (
     <div className="bg-primary flex items-center justify-center h-screen w-full overflow-hidden">
-  <div className="bg-white w-[90%] md:w-[70%] lg:w-[70%] h-[95%] flex flex-col md:flex-row rounded-lg shadow-lg overflow-hidden">
+  <div className="bg-white w-[90%] md:w-[70%] lg:w-[70%] h-[98%] flex flex-col md:flex-row rounded-lg shadow-lg overflow-hidden">
     {/* Image Section */}
     <div className="h-40 md:h-full md:w-[40%] flex-shrink-0">
       <img
@@ -80,7 +81,7 @@ const Signup = () => {
     <div className="p-6 md:py-3 md:px-10 flex-1 overflow-y-auto">
       <h2 className="text-xl md:text-2xl font-bold mb-2">SIGN UP</h2>
       <p className="text-gray-600">Please fill in the form below.</p>
-      <h2 className="text-primary font-bold mb-4 cursor-pointer">Already Have voters Id? Login</h2>
+      <Link to={'/auth/login'} className="text-primary font-bold mb-4 cursor-pointer">Already Have voter Id? Login</Link>
       <form className="space-y-4">
         {/* Passport Upload */}
         <fieldset className="border-dashed border-2 border-gray-300 p-4 rounded-lg flex items-center justify-center">
