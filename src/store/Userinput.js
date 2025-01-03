@@ -10,7 +10,8 @@ const userInputSlice = createSlice({
         stateOfOrigin: '',
         localGovernment: '',
         DOB: '',
-        NIN: ''
+        NIN: '',
+        password: '',
     },
 
     reducers: {
@@ -26,7 +27,8 @@ const userInputSlice = createSlice({
             state.stateOfOrigin = '',
             state.localGovernment = '',
             state.DOB = '',
-            state.NIN = '' 
+            state.NIN = '',
+            state.password = ''
         }
     }
 })

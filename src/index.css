@@ -9,12 +9,58 @@ body {
 
 
 select::-webkit-scrollbar {
-  width: 2px; /* Width of the vertical scrollbar */
+  width: 1px; /* Width of the vertical scrollbar */
 
 }
 
 select::-webkit-scrollbar-track {
   background: blue; /* Background of the scrollbar track */
   border-radius: 8px;
+}
+
+/* For Webkit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Thumb color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Thumb color on hover */
+}
+
+/* For Firefox (custom scrollbar styling via pseudo-elements) */
+.scrollable-content {
+  scrollbar-width: thin; /* Thinner scrollbar */
+  scrollbar-color: #888 #f0f0f0; /* Thumb color and track color */
+}
+
+
+/* Remove the default spinner */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Remove the spinner in other browsers */
+  border: 2px solid #ccc; /* Border for the input */
+  padding: 10px; /* Padding inside input */
+  border-radius: 4px; /* Rounded corners */
+}
+
+input:focus {
+  outline: none; /* Removes the default focus outline */
+  border-color: #4CAF50; /* Green border on focus */
 }
 
