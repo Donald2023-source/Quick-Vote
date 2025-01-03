@@ -2,15 +2,20 @@ import React, { useState, useEffect } from "react";
 import img1 from "../../assets/6931402.jpg";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { updateInput } from "../../store/Userinput";
 
 const Signup = () => {
-  const [data, setData] = useState([]);
-  const [passportPreview,   setPassportPreview] = useState(null);
+  const [data, setData] = useState([]); // States list
+  const [lga, setLGA] = useState([]); // LGAs for selected state
+  const [passportPreview, setPassportPreview] = useState(null);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const { fullname, StateOfOrigin, email} = useSelector((state) => state.userInput)
-  
+  const { fullName, stateOfOrigin, email, DOB } = useSelector(
+    (state) => state.userInput
+  );
+
+  // Fetch states
   const fetchStates = async () => {
     try {
       const response = await axios.get(
@@ -18,34 +23,46 @@ const Signup = () => {
       );
       setData(response.data);
     } catch (error) {
-      console.error(error.message);
+      console.error("Error fetching states:", error.message);
     }
   };
 
-  const fetchLocalGoverments = async() => {
+  // Fetch LGAs for selected state
+  const fetchLocalGovernments = async () => {
+    if (!stateOfOrigin) return; // Prevent API call if no state is selected
     try {
-      const response = await axios.get(`https://nga-states-lga.onrender.com/fetch/${data}`)
-    } catch(error) {
-      console.error('An error occured')
+      const response = await axios.get(
+        `https://nga-states-lga.onrender.com/?state=${stateOfOrigin}`
+      );
+      setLGA(response.data);
+    } catch (error) {
+      console.error("Error fetching LGAs:", error.message);
     }
-  }
+  };
 
   const handleChange = (e) => {
-    const { name, files } = e.target;
+    const { name, value, files } = e.target;
 
     if (name === "passport" && files && files[0]) {
       const file = files[0];
       const reader = new FileReader();
       reader.onload = () => {
         setPassportPreview(reader.result);
+        dispatch(updateInput({ field: "passport", value: reader.result }));
       };
       reader.readAsDataURL(file);
+    } else {
+      dispatch(updateInput({ field: name, value }));
     }
   };
 
   useEffect(() => {
     fetchStates();
   }, []);
+
+  useEffect(() => {
+    fetchLocalGovernments();
+  }, [stateOfOrigin]); // Trigger when stateOfOrigin changes
 
   return (
     <div className="bg-primary flex items-center justify-center h-screen w-full">
@@ -101,7 +118,8 @@ const Signup = () => {
                 <input
                   className="border w-full py-2 px-4 outline-none rounded"
                   type="text"
-                  name={fullname}
+                  name="fullName"
+                  value={fullName}
                   onChange={handleChange}
                   placeholder="Desmond Yusuf"
                 />
@@ -112,7 +130,8 @@ const Signup = () => {
                 <input
                   className="border w-full py-2 px-4 outline-none rounded"
                   type="email"
-                  name={email}
+                  name="email"
+                  value={email}
                   onChange={handleChange}
                   placeholder="desmond234@gmail.com"
                 />
@@ -122,10 +141,11 @@ const Signup = () => {
             {/* State of Origin */}
             <fieldset className="flex flex-col">
               <label className="font-semibold">State of Origin</label>
-              <select onChange={handleChange}
-                className="outline-none cursor-pointer border py-2 px-4 rounded w-full"
-                name={StateOfOrigin}
-                id=""
+              <select
+                className="border w-full py-2 px-4 outline-none rounded"
+                name="stateOfOrigin"
+                value={stateOfOrigin}
+                onChange={handleChange}
               >
                 <option value="">Select State of Origin</option>
                 {data.map((state, index) => (
@@ -135,6 +155,49 @@ const Signup = () => {
                 ))}
               </select>
             </fieldset>
+
+            {/* LGA */}
+            <fieldset className="flex flex-col">
+              <label className="font-semibold">LGA</label>
+              <select
+                className="border w-full py-2 px-4 outline-none rounded"
+                name="lga"
+                onChange={handleChange}
+              >
+                <option value="">Select LGA</option>
+                {lga.map((item, index) => (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </fieldset>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <fieldset className="flex flex-col">
+                <label className="font-semibold">Date of Birth</label>
+                <input
+                  className="border w-full py-2 px-4 outline-none rounded"
+                  type="date"
+                  name="DOB"
+                  value={DOB}
+                  onChange={handleChange}
+                 
+                />
+              </fieldset>
+
+              <fieldset className="flex flex-col">
+                <label className="font-semibold">NIN</label>
+                <input
+                  className="border w-full py-2 px-4 outline-none rounded"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                  placeholder="desmond234@gmail.com"
+                />
+              </fieldset>
+            </div>
           </form>
         </div>
       </div>
