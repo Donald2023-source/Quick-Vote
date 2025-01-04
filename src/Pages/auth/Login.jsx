@@ -17,7 +17,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can add the login logic here, e.g., calling an API to validate the credentials.
+    
     console.log('Login Submitted:', { voterId, password });
   };
 
