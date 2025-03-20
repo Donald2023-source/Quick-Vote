@@ -1,16 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Nunito", serif;
-  font-optical-sizing: auto;
+* {
+  font-family: "Nunito", sans-serif;
+  
+  font-style: normal;
 }
-
 
 select::-webkit-scrollbar {
   width: 1px; /* Width of the vertical scrollbar */
-
 }
 
 select::-webkit-scrollbar-track {
@@ -43,7 +44,6 @@ select::-webkit-scrollbar-track {
   scrollbar-color: #888 #f0f0f0; /* Thumb color and track color */
 }
 
-
 /* Remove the default spinner */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -61,6 +61,5 @@ input[type="number"] {
 
 input:focus {
   outline: none; /* Removes the default focus outline */
-  border-color: #4CAF50; /* Green border on focus */
+  border-color: #4caf50; /* Green border on focus */
 }
-
