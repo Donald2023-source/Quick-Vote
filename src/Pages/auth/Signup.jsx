@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
+  Button,
   FormControl,
   InputLabel,
   MenuItem,
@@ -19,7 +20,6 @@ const Signup = () => {
       const response = await axios.get(
         "https://nga-states-lga.onrender.com/fetch"
       );
-      console.log(response.data);
       setStates(response.data);
     } catch (error) {
       console.error("Error fetching states:", error);
@@ -29,7 +29,6 @@ const Signup = () => {
   const handleStates = (e) => {
     const value = e.target.value;
     setSelectedState(value);
-    console.log(value);
   };
 
   const fetchLGA = async () => {
@@ -37,8 +36,7 @@ const Signup = () => {
       const response = await axios.get(
         `https://nga-states-lga.onrender.com/?state=${selectedState}`
       );
-      console.log(response.data);
-      setLGA(response.data)
+      setLGA(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +55,7 @@ const Signup = () => {
         </div>
         <div>
           <form>
-            <div className="flex flex-col gap-3  w-full">
+            <div className="flex flex-col gap-3  border w-full">
               <fieldset className="flex items-center justify-between gap-5">
                 <TextField
                   required
@@ -77,12 +75,11 @@ const Signup = () => {
                 />
               </fieldset>
 
-              <fieldset>
-                <FormControl fullWidth>
+              <fieldset className="flex w-full items-center gap-5">
+                <FormControl className="w-1/2">
                   <InputLabel>State Of Origin</InputLabel>
                   <Select
                     label="Select State of Origin"
-                    className=" px-4 w-64 text-sm rounded"
                     onChange={handleStates}
                   >
                     {states.map((state, index) => (
@@ -93,21 +90,22 @@ const Signup = () => {
                   </Select>
                 </FormControl>
 
-                <FormControl fullWidth>
+                <FormControl className="w-1/2">
                   <InputLabel>LGA</InputLabel>
-                  <Select
-                    onChange={handleStates}
-                    label="Select State of Origin"
-                    className=" px-4 w-64 text-sm rounded"
-                  >
-                    {states.map((state, index) => (
-                      <MenuItem key={index} value={state} className="text-sm">
-                        {state}
+                  <Select onChange={handleStates} label="Select LGA">
+                    {LGA.map((lga, index) => (
+                      <MenuItem key={index} value={lga} className="text-sm">
+                        {lga}
                       </MenuItem>
                     ))}
                   </Select>
                 </FormControl>
               </fieldset>
+
+             <Button className="cursor-pointer">
+              <label className="h-full w-full" htmlFor="file">Upload ID</label>
+              <input className="hidden" type="file" name="" id="file" />
+             </Button>
             </div>
           </form>
         </div>
