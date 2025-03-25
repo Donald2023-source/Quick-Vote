@@ -1,111 +1,113 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import img1 from "../../assets/Image 3.jpg";
+import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { PhotoCamera } from "@mui/icons-material";
 import axios from "axios";
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
-
 const Signup = () => {
   const [states, setStates] = useState([]);
   const [LGA, setLGA] = useState([]);
-  const [selectedState, setSelectedState] = useState("");
-  const [selectedLGA, setSelectedLGa] = useState("");
 
   const fetchStates = async () => {
     try {
       const response = await axios.get(
         "https://nga-states-lga.onrender.com/fetch"
       );
-      setStates(response.data);
+      setStates(response.data)
     } catch (error) {
-      console.error("Error fetching states:", error);
+      console.error(error)
     }
-  };
-
-  const handleStates = (e) => {
-    const value = e.target.value;
-    setSelectedState(value);
-  };
-
-  const fetchLGA = async () => {
-    try {
-      const response = await axios.get(
-        `https://nga-states-lga.onrender.com/?state=${selectedState}`
-      );
-      setLGA(Array.isArray(response.data) ? response.data : []);
-    } catch (error) {
-      console.log(error);
-    }
+    
   };
 
   useEffect(() => {
     fetchStates();
-    fetchLGA();
-  }, [selectedState]);
+  }, []);
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    password: "",
+    stateOfOrigin: "",
+    DOB: "",
+    LGA: "",
+    passport: "",
+    IDcard: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    console.log(formData);
+  };
 
   return (
-    <div className="px-10 h-screen py-3">
-      <div className="flex gap-10 items-center justify-center h-full">
-        <div className="w-1/3 bg-primary rounded-lg h-3/4 border">
-          <h2 className="text-sm">Image section</h2>
-        </div>
-        <div>
-          <form>
-            <div className="flex flex-col gap-3  border w-full">
-              <fieldset className="flex items-center justify-between gap-5">
-                <TextField
-                  required
-                  className="w-72 text-sm"
-                  label="Full Name"
-                  variant="outlined"
-                  InputProps={{ style: { fontSize: "0.9 rem" } }}
-                />
+    <div className="flex overflow-hidden">
+      <div className="w-1/3 rounded-r-2xl">
+        <img className="w-full h-full" src={img1} alt="Signup image" />
+      </div>
 
-                <TextField
-                  required
-                  type="email"
-                  className="w-72 text-sm"
-                  label="Email"
-                  variant="outlined"
-                  InputProps={{ style: { fontSize: "0.9rem" } }}
-                />
+      <div className="flex-1 border mx-2 h-fit">
+        <div className="border h-[95vh] flex items-center justify-center">
+          <form
+            className="h-full w-[60%] flex flex-col items-center border justify-center"
+            action=""
+          >
+            <label
+              htmlFor="file"
+              className="cursor-pointer hover:scale-95 hoverEffect"
+            >
+              <fieldset className="h-20 p-3 w-20  rounded-full bg-primary flex items-center justify-center">
+                <label htmlFor="file">
+                  <PhotoCamera className="text-gray-300" />
+                </label>
+                <input className="hidden" type="file" id="file" />
               </fieldset>
+            </label>
 
-              <fieldset className="flex w-full items-center gap-5">
-                <FormControl className="w-1/2">
-                  <InputLabel>State Of Origin</InputLabel>
-                  <Select
-                    label="Select State of Origin"
-                    onChange={handleStates}
-                  >
-                    {states.map((state, index) => (
-                      <MenuItem key={index} value={state} className="text-sm">
-                        {state}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
+            <fieldset className="border p-3  text-sm w-full rounded-md">
+              <legend className="font-normal text-sm px-4 tracking-wider">
+                Full Name
+              </legend>
+              <input
+                className="outline-none"
+                type="text"
+                placeholder="John Audu"
+              />
+            </fieldset>
 
-                <FormControl className="w-1/2">
-                  <InputLabel>LGA</InputLabel>
-                  <Select onChange={handleStates} label="Select LGA">
-                    {LGA.map((lga, index) => (
-                      <MenuItem key={index} value={lga} className="text-sm">
-                        {lga}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </fieldset>
+            <div className="w-full">
+            <div className="w-[45%]">
+              <FormControl className="w-full" fullWidth>
+                <InputLabel>State of Origin</InputLabel>
+                <Select
+                  name="stateOfOrigin"
+                  value={formData.stateOfOrigin}
+                  onChange={handleChange}
+                  className="w-full"
+                >
+                  {states.map((state, index) => (
+                    <MenuItem key={index} value={state}>
+                      {state}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
 
-             <Button className="cursor-pointer">
-              <label className="h-full w-full" htmlFor="file">Upload ID</label>
-              <input className="hidden" type="file" name="" id="file" />
-             </Button>
+              <FormControl className="w-full" fullWidth>
+                <InputLabel>State of Origin</InputLabel>
+                <Select
+                  name="stateOfOrigin"
+                  value={formData.stateOfOrigin}
+                  onChange={handleChange}
+                  className="w-full"
+                >
+                  {states.map((state, index) => (
+                    <MenuItem key={index} value={state}>
+                      {state}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </div>
             </div>
           </form>
         </div>
