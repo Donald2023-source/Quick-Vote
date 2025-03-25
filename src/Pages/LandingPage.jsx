@@ -17,8 +17,8 @@ const LandingPage = () => {
             <motion.div whileInView={{ scale: 1, opacity: 1 }}
           initial={{ scale: 0.9, opacity: 0 }}
           transition={{ duration: 1 }} className='absolute text-white flex md:flex-row flex-col justify-between h-[90vh] md:px-20 items-center md:gap-5 gap-10 py-6 px-2'>
-                <div className='md:w-[40%] flex-shrink md:pl-0 pl-4 space-y-4 flex flex-col items-start'>
-                  <h2 className='font-bold text-4xl'>Get More With Ivote Voting System</h2>
+                <div className='md:w-[40%] flex-shrink md:pl-0 pl-4 space-y-4 flex gap-5 flex-col items-start'>
+                  <h2 className='font-bold text-4xl md:leading-relaxed'>Get More With Ivote Voting System</h2>
                   <p className='leading-loose text-sm'>The iVote system is an innovative electronic voting solution designed to simplify and secure the electoral process. It combines technology and user-centric design to ensure a transparent, efficient, and reliable voting experience</p>
 
                   <Link to={'/auth/signup'} className='border py-2 hover:scale-105 transition-all px-5 rounded'>Get started</Link>
