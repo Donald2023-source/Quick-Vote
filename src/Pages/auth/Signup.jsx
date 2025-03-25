@@ -1,47 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { VotingAnimation } from "../../Components/VotingSvg";
+import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 
 const Signup = () => {
+  const [states, setStates] = useState([]);
 
-  const fetchStates = () => {
+  const fetchStates = async () => {
     try {
-      const response = axios.get("https://nga-states-lga.onrender.com/fetch");
-      if (response.ok) {
-        console.log(response);
-      }
+      const response = await axios.get("https://nga-states-lga.onrender.com/fetch");
+      console.log(response.data);
+      setStates(response.data); 
     } catch (error) {
-      console.error("Something went wrong");
+      console.error("Error fetching states:", error);
     }
   };
 
   useEffect(() => {
     fetchStates();
   }, []);
-  
-
 
   return (
     <div className="px-10 h-screen py-3">
-      <div className=" flex gap-10 items-center justify-center h-full">
+      <div className="flex gap-10 items-center justify-center h-full">
         <div className="w-1/3 bg-primary rounded-lg h-3/4 border">
-          <h2>Image section </h2>
+          <h2 className="text-sm">Image section</h2>
         </div>
         <div>
-          <form action="">
+          <form>
             <div className="flex gap-3">
-              <fieldset className="border w-64 px-4 py-2 text-sm rounded ">
-                <legend className="text-sm text-gray-400">Full Name</legend>
-                <input type="text" placeholder="Full Name" />
-              </fieldset>
-              <fieldset className="border w-64 px-4 py-2 text-sm rounded ">
-                <legend className="text-sm text-gray-400">Email</legend>
-                <input type="text" placeholder="user@bingham.edu.ng" />
+              <fieldset>
+                <TextField required className="w-64 text-sm" label="Full Name" variant="outlined" InputProps={{ style: { fontSize: '0.9 rem' } }}  />
               </fieldset>
 
-              <select name="" id="">
-                <option value="">Select State of Origin </option>
-              </select>
+              <fieldset>
+                <TextField required type="email" className="w-64 text-sm" label="Email" variant="outlined" InputProps={{ style: { fontSize: '0.9rem' } }}  />
+              </fieldset> 
+              
+             <FormControl className="w-64 f" fullWidth>
+              <InputLabel>State Of Origin</InputLabel>
+             <Select label="Select State of Origin" className="border px-4 py-2 w-64 text-sm rounded">
+                {states.map((state, index) => (
+                  <MenuItem key={index} value={state} className="text-sm">
+                    {state}
+                  </MenuItem>
+                ))}
+              </Select>
+             </FormControl>
             </div>
           </form>
         </div>
