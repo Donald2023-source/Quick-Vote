@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { PhotoCamera, Upload } from "@mui/icons-material";
 import axios from "axios";
-const Signup = () => {
+const Organization = () => {
   const [states, setStates] = useState([]);
   const [LGA, setLGA] = useState([]);
 
@@ -186,4 +186,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Organization;

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { PhotoCamera, Upload } from "@mui/icons-material";
 import axios from "axios";
-const Signup = () => {
+const Cooperative = () => {
   const [states, setStates] = useState([]);
   const [LGA, setLGA] = useState([]);
 
@@ -87,7 +87,6 @@ const Signup = () => {
                 <input required className="hidden" type="file" id="file" />
               </fieldset>
               <h2 className="text-center py-4">Passport</h2>
-
             </label>
 
             <fieldset className="border p-3  text-sm w-full rounded-md">
@@ -95,7 +94,7 @@ const Signup = () => {
                 Full Name
               </legend>
               <input
-              required
+                required
                 className="outline-none"
                 type="text"
                 placeholder="John Audu"
@@ -159,12 +158,7 @@ const Signup = () => {
                 <legend className="font-normal text-sm px-4 tracking-wider">
                   Password
                 </legend>
-                <input
-                  required
-                  className="outline-none"
-                  type="email"
-                  
-                />
+                <input required className="outline-none" type="email" />
               </fieldset>
 
               <label
@@ -172,7 +166,13 @@ const Signup = () => {
                 className="border-dashed border p-3 flex gap-3 cursor-pointer items-center justify-center  text-sm md:w-[47%] rounded-md"
               >
                 <Upload />
-                <input required className="hidden" type="file" name="" id="id_card" />
+                <input
+                  required
+                  className="hidden"
+                  type="file"
+                  name=""
+                  id="id_card"
+                />
                 <h2>Upload ID Card</h2>
               </label>
             </div>
@@ -186,4 +186,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Cooperative;
