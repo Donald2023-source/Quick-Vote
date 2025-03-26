@@ -8,6 +8,7 @@ import Signup from './Pages/auth/Signup'
 import Login from './Pages/auth/Login'
 import Organization from './Pages/auth/Organization'
 import Cooperative from './Pages/auth/Cooperative'
+import Frontpage from './Pages/auth/Frontpage'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/auth/signup/organization' element={<Organization />} />
           <Route path='/auth/signup/cooperative' element={<Cooperative />} />
           <Route path='/auth/login' element={<Login />} />
+          <Route path='/auth' element={<Frontpage />} />
         </Routes>
       </BrowserRouter>
 
