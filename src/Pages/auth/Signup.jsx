@@ -61,15 +61,19 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex overflow-hidden">
-      <div className="w-1/3 rounded-r-2xl">
-        <img className="w-full h-full" src={img1} alt="Signup image" />
+    <div className="flex md:flex-row flex-col md:overflow-hidden">
+      <div className="md:w-1/2 md:h-screen h-48 md:rounded-r-2xl">
+        <img
+          className="w-full h-full object-cover"
+          src={img1}
+          alt="Signup image"
+        />
       </div>
 
-      <div className="flex-1 border mx-2 h-fit">
-        <div className="border h-[95vh] flex items-center justify-center">
+      <div className="flex-1 w-full h-full flex items-center flex-col justify-center my-auto">
+        <div className="h-full w-full flex flex-col items-center justify-center">
           <form
-            className="h-full w-[60%] flex flex-col items-center border justify-center"
+            className="h-full w-[100%] md:w-[70%] py-4 rounded-lg shadow-xl flex flex-col gap-8 px-5 items-center justify-center"
             action=""
           >
             <label
@@ -80,7 +84,7 @@ const Signup = () => {
                 <label htmlFor="file">
                   <PhotoCamera className="text-gray-300" />
                 </label>
-                <input className="hidden" type="file" id="file" />
+                <input required className="hidden" type="file" id="file" />
               </fieldset>
             </label>
 
@@ -89,6 +93,7 @@ const Signup = () => {
                 Full Name
               </legend>
               <input
+              required
                 className="outline-none"
                 type="text"
                 placeholder="John Audu"
@@ -105,6 +110,7 @@ const Signup = () => {
                     value={formData.stateOfOrigin}
                     onChange={handleChange}
                     className="w-full"
+                    required
                   >
                     {states.map((state, index) => (
                       <MenuItem key={index} value={state}>
@@ -122,6 +128,7 @@ const Signup = () => {
                     value={formData.LGA}
                     onChange={handleChange}
                     className="w-full"
+                    required
                   >
                     {LGA.map((lga, index) => (
                       <MenuItem key={index} value={lga}>
@@ -145,8 +152,8 @@ const Signup = () => {
               />
             </fieldset>
 
-            <div className="w-full flex justify-between">
-              <fieldset className="border p-3  text-sm w-[47%] rounded-md">
+            <div className="w-full flex md:flex-row gap-8 flex-col justify-between">
+              <fieldset className="border p-3  text-sm md:w-[47%] rounded-md">
                 <legend className="font-normal text-sm px-4 tracking-wider">
                   Password
                 </legend>
@@ -154,18 +161,22 @@ const Signup = () => {
                   required
                   className="outline-none"
                   type="email"
-                  placeholder="john@binghamuni.edu.ng"
+                  
                 />
               </fieldset>
-                
-              <label id="id_card" className="border-dashed border p-3 flex gap-3 cursor-pointer items-center justify-center  text-sm w-[47%] rounded-md">
+
+              <label
+                id="id_card"
+                className="border-dashed border p-3 flex gap-3 cursor-pointer items-center justify-center  text-sm md:w-[47%] rounded-md"
+              >
                 <Upload />
-                <input className="hidden" type="file" name="" id="id_card" />
+                <input required className="hidden" type="file" name="" id="id_card" />
                 <h2>Upload ID Card</h2>
               </label>
-
             </div>
-              <button className="border py-3 px-10 rounded bg-primary/80 hover:scale-105 hoverEffect text-white">Submit</button>
+            <button className="border py-3 px-10 rounded bg-primary/80 hover:scale-105 hoverEffect text-white">
+              Submit
+            </button>
           </form>
         </div>
       </div>
