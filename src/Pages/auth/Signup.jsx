@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import img1 from "../../assets/Image 3.jpg";
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
-import { PhotoCamera } from "@mui/icons-material";
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
+import { PhotoCamera, Upload } from "@mui/icons-material";
 import axios from "axios";
 const Signup = () => {
   const [states, setStates] = useState([]);
@@ -12,16 +19,30 @@ const Signup = () => {
       const response = await axios.get(
         "https://nga-states-lga.onrender.com/fetch"
       );
-      setStates(response.data)
+      setStates(response.data);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-    
+  };
+
+  const fetchLGA = async () => {
+    try {
+      const response = await axios.get(
+        `https://nga-states-lga.onrender.com/?state=${formData.stateOfOrigin}`
+      );
+      setLGA(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
     fetchStates();
-  }, []);
+    if (formData.stateOfOrigin !== "") {
+      fetchLGA();
+    }
+  }, [states]);
+
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -74,41 +95,77 @@ const Signup = () => {
               />
             </fieldset>
 
-            <div className="w-full">
-            <div className="w-[45%]">
-              <FormControl className="w-full" fullWidth>
-                <InputLabel>State of Origin</InputLabel>
-                <Select
-                  name="stateOfOrigin"
-                  value={formData.stateOfOrigin}
-                  onChange={handleChange}
-                  className="w-full"
-                >
-                  {states.map((state, index) => (
-                    <MenuItem key={index} value={state}>
-                      {state}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+            <div className="w-full flex justify-between">
+              <div className="w-[47%]">
+                <FormControl className="w-full" fullWidth>
+                  <InputLabel id="state-label">State of Origin</InputLabel>
+                  <Select
+                    labelId="state-label"
+                    name="stateOfOrigin"
+                    value={formData.stateOfOrigin}
+                    onChange={handleChange}
+                    className="w-full"
+                  >
+                    {states.map((state, index) => (
+                      <MenuItem key={index} value={state}>
+                        {state}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </div>
+              <div className="w-[47%]">
+                <FormControl className="w-full" fullWidth>
+                  <InputLabel>LGA</InputLabel>
+                  <Select
+                    name="LGA"
+                    value={formData.LGA}
+                    onChange={handleChange}
+                    className="w-full"
+                  >
+                    {LGA.map((lga, index) => (
+                      <MenuItem key={index} value={lga}>
+                        {lga}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </div>
+            </div>
 
-              <FormControl className="w-full" fullWidth>
-                <InputLabel>State of Origin</InputLabel>
-                <Select
-                  name="stateOfOrigin"
-                  value={formData.stateOfOrigin}
-                  onChange={handleChange}
-                  className="w-full"
-                >
-                  {states.map((state, index) => (
-                    <MenuItem key={index} value={state}>
-                      {state}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+            <fieldset className="border p-3  text-sm w-full rounded-md">
+              <legend className="font-normal text-sm px-4 tracking-wider">
+                Email
+              </legend>
+              <input
+                required
+                className="outline-none"
+                type="email"
+                placeholder="john@binghamuni.edu.ng"
+              />
+            </fieldset>
+
+            <div className="w-full flex justify-between">
+              <fieldset className="border p-3  text-sm w-[47%] rounded-md">
+                <legend className="font-normal text-sm px-4 tracking-wider">
+                  Password
+                </legend>
+                <input
+                  required
+                  className="outline-none"
+                  type="email"
+                  placeholder="john@binghamuni.edu.ng"
+                />
+              </fieldset>
+                
+              <label id="id_card" className="border-dashed border p-3 flex gap-3 cursor-pointer items-center justify-center  text-sm w-[47%] rounded-md">
+                <Upload />
+                <input className="hidden" type="file" name="" id="id_card" />
+                <h2>Upload ID Card</h2>
+              </label>
+
             </div>
-            </div>
+              <button className="border py-3 px-10 rounded bg-primary/80 hover:scale-105 hoverEffect text-white">Submit</button>
           </form>
         </div>
       </div>
