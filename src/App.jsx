@@ -50,7 +50,7 @@ const App = () => {
             }
           />
           <Route path="/contact-us" element={<Contact />} />
-          <Route path="/auth/signup" element={<Signup />} />
+          <Route path="/auth/signup/student" element={<Signup />} />
           <Route path="/auth/signup/organization" element={<Organization />} />
           <Route path="/auth/signup/cooperative" element={<Cooperative />} />
           <Route path="/auth/login" element={<Login />} />
