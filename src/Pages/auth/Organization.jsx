@@ -3,6 +3,7 @@ import img1 from "../../assets/Image 3.jpg";
 import Button from "../../Components/Button";
 import axios from "axios";
 import BusinessIcon from "@mui/icons-material/Business";
+import { Link } from "react-router-dom";
 
 const Organization = () => {
   const [formData, setFormData] = useState({
@@ -56,12 +57,12 @@ const Organization = () => {
       <form className="flex-1 w-full h-full flex items-center flex-col justify-center mt-20 md:my-auto">
         <div className="w-full flex flex-col items-center gap-3">
           <BusinessIcon />
-          <h2 className="text-left font-medium py-3 tracking-wider">
+          <h2 className="text-left font-semibold py-3 tracking-wider">
             Organization Name
           </h2>
         </div>
         <div className="flex items-center justify-center flex-col md:w-[90%] w-full gap-4">
-          <p className="text-gray-400 text-sm leading-6 md:px-32 px-20 text-center">Please enter the appropriate informations for the fields below. ID should not be less than 5 characters</p>
+          <p className="text-gray-400 text-sm leading-7 md:px-32 px-20 text-center py-3">Please enter the appropriate informations for the fields below. ID should not be less than 5 characters</p>
           <input
             onChange={handleChange}
             value={formData.name}
@@ -84,6 +85,7 @@ const Organization = () => {
           {error && <h2 className="text-red-400">{error}</h2>}
         </div>
         <Button onClick={handleSignup}>Submit</Button>
+        <p>Already have an account? <Link className="font-bold text-primary" to={'/login/organization'}>Login</Link></p>
       </form>
     </div>
   );
