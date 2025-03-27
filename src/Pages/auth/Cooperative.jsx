@@ -73,7 +73,7 @@ const Cooperative = () => {
       <div className="flex-1 w-full h-full flex items-center flex-col justify-center my-auto">
         <div className="h-full w-full flex flex-col items-center justify-center">
           <form
-            className="h-full w-[100%] md:w-[70%] py-4 rounded-lg shadow-xl flex flex-col gap-8 px-5 items-center justify-center"
+            className="h-full w-[100%] md:w-[80%] py-4 rounded-lg shadow-xl flex flex-col gap-6 px-5 items-center justify-center"
             action=""
           >
             <label
@@ -86,7 +86,7 @@ const Cooperative = () => {
                 </label>
                 <input required className="hidden" type="file" id="file" />
               </fieldset>
-              <h2 className="text-center py-4">Passport</h2>
+              <h2 className="text-center py-2">Passport</h2>
             </label>
 
             <fieldset className="border p-3  text-sm w-full rounded-md">
@@ -176,6 +176,17 @@ const Cooperative = () => {
                 <h2>Upload ID Card</h2>
               </label>
             </div>
+            <fieldset className="border p-3  text-sm w-full rounded-md">
+              <legend className="font-normal text-sm px-4 tracking-wider">
+                Full Name
+              </legend>
+              <input
+                required
+                className="outline-none"
+                type="text"
+                placeholder="John Audu"
+              />
+            </fieldset>
             <button className="border py-3 px-10 rounded bg-primary/80 hover:scale-105 hoverEffect text-white">
               Submit
             </button>
