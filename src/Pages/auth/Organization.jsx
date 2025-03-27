@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import img1 from "../../assets/Image 3.jpg";
 import Button from "../../Components/Button";
 import axios from "axios";
+import BusinessIcon from "@mui/icons-material/Business";
 
 const Organization = () => {
   const [name, setName] = useState();
 
   const handleSignup = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post(``);
       console.log("The button was clicked");
@@ -30,9 +32,12 @@ const Organization = () => {
       </div>
 
       <form className="flex-1 w-full h-full flex items-center flex-col justify-center my-auto">
-        <h2 className="text-left font-medium py-3 tracking-wider">
-          Organization Name
-        </h2>
+        <div className="w-full flex flex-col items-center gap-3">
+          <BusinessIcon />
+          <h2 className="text-left font-medium py-3 tracking-wider">
+            Organization Name
+          </h2>
+        </div>
         <input
           onChange={handleChange}
           value={name}
