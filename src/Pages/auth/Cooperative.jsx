@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { PhotoCamera, Upload } from "@mui/icons-material";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Cooperative = () => {
   const [states, setStates] = useState([]);
   const [LGA, setLGA] = useState([]);
@@ -73,7 +74,7 @@ const Cooperative = () => {
       <div className="flex-1 w-full h-full flex items-center flex-col justify-center my-auto">
         <div className="h-full w-full flex flex-col items-center justify-center">
           <form
-            className="h-full w-[100%] md:w-[80%] py-4 rounded-lg shadow-xl flex flex-col gap-6 px-5 items-center justify-center"
+            className="h-full w-[100%] md:w-[80%] py-4 rounded-2xl shadow-xl flex flex-col gap-5 px-5 items-center justify-center"
             action=""
           >
             <label
@@ -187,6 +188,7 @@ const Cooperative = () => {
                 placeholder="John Audu"
               />
             </fieldset>
+            <p>Already have an account? <Link className="font-semibold text-primary" to={'/login/cooperative'}>Login</Link></p>
             <button className="border py-3 px-10 rounded bg-primary/80 hover:scale-105 hoverEffect text-white">
               Submit
             </button>

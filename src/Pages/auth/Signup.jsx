@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { PhotoCamera, Upload } from "@mui/icons-material";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [states, setStates] = useState([]);
   const [LGA, setLGA] = useState([]);
@@ -176,6 +177,7 @@ const Signup = () => {
                 <h2>Upload ID Card</h2>
               </label>
             </div>
+            <p>Already have an account? <Link to={'/login/student'} className="font-bold text-primary">Login</Link></p>
             <button className="border py-3 px-10 rounded bg-primary/80 hover:scale-105 hoverEffect text-white">
               Submit
             </button>
