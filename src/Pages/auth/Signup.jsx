@@ -15,6 +15,7 @@ const Signup = () => {
   const [states, setStates] = useState([]);
   const [LGA, setLGA] = useState([]);
 
+  // fetch States and LGA using axios
   const fetchStates = async () => {
     try {
       const response = await axios.get(
@@ -39,6 +40,7 @@ const Signup = () => {
 
   useEffect(() => {
     fetchStates();
+    //check, if state of origin has been selected, only then can the LGA be fetched
     if (formData.stateOfOrigin !== "") {
       fetchLGA();
     }
@@ -57,7 +59,7 @@ const Signup = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value })); //handle user input
     console.log(formData);
   };
 
@@ -88,7 +90,6 @@ const Signup = () => {
                 <input required className="hidden" type="file" id="file" />
               </fieldset>
               <h2 className="text-center py-4">Passport</h2>
-
             </label>
 
             <fieldset className="border p-3  text-sm w-full rounded-md">
@@ -96,7 +97,7 @@ const Signup = () => {
                 Full Name
               </legend>
               <input
-              required
+                required
                 className="outline-none"
                 type="text"
                 placeholder="John Audu"
@@ -160,12 +161,7 @@ const Signup = () => {
                 <legend className="font-normal text-sm px-4 tracking-wider">
                   Password
                 </legend>
-                <input
-                  required
-                  className="outline-none"
-                  type="email"
-                  
-                />
+                <input required className="outline-none" type="email" />
               </fieldset>
 
               <label
@@ -173,11 +169,22 @@ const Signup = () => {
                 className="border-dashed border p-3 flex gap-3 cursor-pointer items-center justify-center  text-sm md:w-[47%] rounded-md"
               >
                 <Upload />
-                <input required className="hidden" type="file" name="" id="id_card" />
+                <input
+                  required
+                  className="hidden"
+                  type="file"
+                  name=""
+                  id="id_card"
+                />
                 <h2>Upload ID Card</h2>
               </label>
             </div>
-            <p>Already have an account? <Link to={'/login/student'} className="font-bold text-primary">Login</Link></p>
+            <p>
+              Already have an account?{" "}
+              <Link to={"/login/student"} className="font-bold text-primary">
+                Login
+              </Link>
+            </p>
             <button className="border py-3 px-10 rounded bg-primary/80 hover:scale-105 hoverEffect text-white">
               Submit
             </button>

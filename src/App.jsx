@@ -13,11 +13,14 @@ import Contact from "./Pages/Contact";
 import Signup from "./Pages/auth/Signup";
 import Login from "./Pages/auth/Login";
 import Organization from "./Pages/auth/Organization";
+import OrganizationDashboard from "./Pages/Dashboards/Organization";
 import Cooperative from "./Pages/auth/Cooperative";
 import Frontpage from "./Pages/auth/Frontpage";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "./redux/loadingSlice";
 import Loader from "./Components/Loader";
+import Student from "./Pages/Dashboards/Student";
+import Dashboard from "./Layouts/Dashboard";
 
 const Loading = () => <div><Loader /></div>;
 
@@ -53,8 +56,11 @@ const App = () => {
           <Route path="/auth/signup/student" element={<Signup />} />
           <Route path="/auth/signup/organization" element={<Organization />} />
           <Route path="/auth/signup/cooperative" element={<Cooperative />} />
-          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/student/login" element={<Login />} />
           <Route path="/auth" element={<Frontpage />} />
+          <Route path="/student-dashboard" element={<Dashboard><Student /></Dashboard>} />
+          <Route path="/cooperative-dashboard" element={<Dashboard><Cooperative /></Dashboard>} />
+          <Route path="/dashboard/:name" element={<OrganizationDashboard />} />
         </Routes>
       )
     }
