@@ -1,9 +1,20 @@
+import { Avatar } from '@mui/material'
 import React from 'react'
-
+import { Notifications } from '@mui/icons-material'
+import DashboardMessage from '../../Components/DashboardMessage'
 const Student = () => {
   return (
     <div>
-      This is the Student Dashboard
+      <div>
+        <div className='lg:flex hidden gap-5 items-center justify-end'>
+          <Avatar className='hover:scale-105 hoverEffect cursor-pointer'>D</Avatar>
+          <span className='hover:scale-105 hoverEffect cursor-pointer'><Notifications/></span>
+        </div>
+
+        <div>
+          <DashboardMessage name={"Donald"} />
+        </div>
+      </div>
     </div>
   )
 }

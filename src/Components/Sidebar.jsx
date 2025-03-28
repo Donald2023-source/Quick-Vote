@@ -26,22 +26,21 @@ const Sidebar = ({ className }) => {
 
   const path = useLocation();
 
-  // Close sidebar when route changes on mobile
   React.useEffect(() => {
     setIsOpen(false);
   }, [path]);
 
   return (
     <>
-      <div className="md:hidden fixed p-2 top-0 w-full justify-between z-50 flex items-center">
+      <div className="md:hidden fixed p-2 top-0 w-full justify-between z-30 flex items-center">
         <div>
           <Link to="/student-dashboard">
             <h3 className="text-white bg-primary py-2 px-4 rounded-full w-fit font-bold text-xl">
               <span className="text-blue-400">I</span>vote
             </h3>
-          </Link> 
+          </Link>
         </div>
-        <div className="flex items-center">
+        <div className="flex gap-4 items-center">
           <Avatar
             className="hover:scale-105 hoverEffect cursor-pointer"
             sx={{ width: 30, height: 30, fontSize: 14 }}
@@ -99,7 +98,7 @@ const Sidebar = ({ className }) => {
                 onClick={() => setIsOpen(false)}
               >
                 <span className="text-xl">{item.icon}</span>
-                <span className="text-base">{item.name}</span>
+                <span className="lg:text-base md:text-xs">{item.name}</span>
               </Link>
             ))}
           </nav>

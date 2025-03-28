@@ -1,9 +1,10 @@
 
 import { motion } from "framer-motion"
+import { twMerge } from "tailwind-merge"
 
-export default function VotingLoader() {
+export default function VotingLoader({className}) {
   return (
-    <div className="flex items-center justify-center h-screen bg-blue-50">
+    <div className={twMerge('flex items-center justify-center w-fit bg-blue-50',className )}>
       <div className="flex flex-col items-center gap-4">
         <div className="relative w-32 h-32">
           {/* Ballot box */}
@@ -67,14 +68,7 @@ export default function VotingLoader() {
           </motion.div>
         </div>
 
-        <motion.p
-          className="text-blue-800 font-medium text-lg"
-          initial={{ opacity: 0.6 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
-        >
-          Casting Your Vote...
-        </motion.p>
+        
       </div>
     </div>
   )
