@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge"
 
 export default function VotingLoader({className}) {
   return (
-    <div className={twMerge('flex items-center justify-center w-fit bg-blue-50',className )}>
+    <div className={twMerge('flex items-center justify-center w-fit bg-blue-50', className )}>
       <div className="flex flex-col items-center gap-4">
         <div className="relative w-32 h-32">
           {/* Ballot box */}

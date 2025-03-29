@@ -2,6 +2,9 @@ import { Avatar } from '@mui/material'
 import React from 'react'
 import { Notifications } from '@mui/icons-material'
 import DashboardMessage from '../../Components/DashboardMessage'
+import MyCalendar from '../../Components/Calendar'
+
+
 const Student = () => {
   return (
     <div>
@@ -11,8 +14,9 @@ const Student = () => {
           <span className='hover:scale-105 hoverEffect cursor-pointer'><Notifications/></span>
         </div>
 
-        <div>
+        <div className='flex items-center justify-between'>
           <DashboardMessage name={"Donald"} />
+        
         </div>
       </div>
     </div>

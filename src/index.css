@@ -61,3 +61,55 @@ input[type="number"] {
 .hoverEffect {
   transition: ease-in-out 300ms;
 }
+
+
+/* Styles the main calendar container */
+.calendar-container {
+  /* Add styles for the outer container */
+  text-align: center;
+  width: 43%;
+  min-height: 300px;
+}
+
+/* Styles the main calendar component */
+.calendar {
+  /* Add styles for the calendar */
+}
+
+/* This styles the current day */
+.current-day {
+  /* Add styles for highlighting the current day */
+  @apply bg-primary text-white rounded-lg
+}
+
+/* This styles marked days */
+.marked-day {
+  /* Add styles for the marked days */
+  
+  @apply bg-primary text-white rounded-lg
+}
+
+/* This styles the navigation bar (month and year selector) */
+.react-calendar__navigation {
+  /* Add styles for the navigation bar */
+  font-weight: bold ;
+  display: flex;
+  padding: 10px 80px;
+}
+
+/* Styles for each calendar tile (day cell) */
+.react-calendar__tile {
+  /* Add styles for individual date tiles */
+  padding: 10px 0;
+}
+
+/* Styles when hovering over a day */
+.react-calendar__tile:hover {
+  /* Add styles for hover effects */
+  @apply bg-primary text-white rounded-lg hoverEffect
+}
+
+/* Styles for disabled days */
+.react-calendar__tile--disabled {
+  /* Add styles for disabled dates */
+}
