@@ -3,6 +3,7 @@ import React from 'react'
 import { Notifications } from '@mui/icons-material'
 import DashboardMessage from '../../Components/DashboardMessage'
 import MyCalendar from '../../Components/Calendar'
+import Chart from '../../Components/BarChart'
 
 
 const Student = () => {
@@ -16,7 +17,9 @@ const Student = () => {
 
         <div className='flex items-center justify-between'>
           <DashboardMessage name={"Donald"} />
-        
+        </div>
+        <div>
+          <Chart />
         </div>
       </div>
     </div>
