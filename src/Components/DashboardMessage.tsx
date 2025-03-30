@@ -29,7 +29,7 @@ const DashboardMessage = ({ name }) => {
 
           <VotingLoader className={"px-0"} />
         </div>
-        <MyCalendar className={"px-0 min-h-[300px]"} />
+        <MyCalendar/>
       </div>
     </div>
   );
