@@ -31,7 +31,7 @@ const Student = () => {
             <ActviityBar />
           </div>
           {/* Ensure ElectionStats takes remaining space */}
-          <ElectionStats className="flex-1" />
+          <ElectionStats className="flex-1 w-full" />
         </div>
       </div>
     </div>

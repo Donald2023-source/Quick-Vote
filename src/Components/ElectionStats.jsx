@@ -1,9 +1,24 @@
 import { twMerge } from "tailwind-merge"
+import DonutChart from 'react-donut-chart';
 
 const ElectionStats = ({className}) => {
     return (
-        <div className={twMerge('flex-1 border w-full', className)}>
-            this is the election stats
+        <div className={twMerge('border w-full', className)}>
+
+
+<DonutChart
+  data={[
+    {
+      label: 'Give you up',
+      value: 25,
+    },
+    {
+      label: '',
+      value: 75,
+      isEmpty: true,
+    },
+  ]}
+/>;
         </div>
     )
 }
