@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 import { twMerge } from "tailwind-merge";
 
+
 function MyCalendar({ className }) {
   const [date, setDate] = useState(new Date());
 
@@ -28,11 +29,11 @@ function MyCalendar({ className }) {
   };
 
   return (
-    <div className={twMerge("calendar-container", className)}>
+    <div className={twMerge("calendar-container max-w-sm", className)}>
       <Calendar
-        className="calendar shadow min-h-[300px] rounded-xl px-4 font-medium text-sm"
+        className="calendar shadow max-h-[300px] rounded-xl py-1 md:px-12 max-w-sm font-medium text-sm"
         onChange={onChange}
-        value={date}
+        value={date}  
         tileContent={tileContent}
         tileClassName={({ date }) =>
           date.toDateString() === new Date().toDateString() ? "current-day" : ""
