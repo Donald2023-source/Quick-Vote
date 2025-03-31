@@ -18,7 +18,7 @@ const Student = () => {
         <div className='flex items-center justify-between'>
           <DashboardMessage name={"Donald"} />
         </div>
-        <div>
+        <div className='w-[50%] shadow'>
           <Chart />
         </div>
       </div>
