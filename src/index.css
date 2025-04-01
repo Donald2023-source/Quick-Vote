@@ -68,8 +68,26 @@ input[type="number"] {
   /* Add styles for the outer container */
   text-align: center;
   width: 46%;
-  min-height: 300px;
+  min-height: 100px;
 }
+
+@media (max-width: 768px) {
+  .calendar-container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .react-calendar__navigation {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .react-calendar__tile {
+    padding: 5px 0;
+  }
+}
+  
+
 
 /* Styles the main calendar component */
 .calendar {

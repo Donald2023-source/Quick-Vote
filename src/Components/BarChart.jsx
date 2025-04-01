@@ -67,7 +67,7 @@ export default function Chart() {
       </div>
       <div
         ref={containerRef}
-        className="w-full overflow-x-auto" // Changed to overflow-x-auto for horizontal scrolling
+        className="w-full " // Changed to overflow-x-auto for horizontal scrolling
       >
         <BarChart
           className="h-full w-full py-3 min-w-[500px] mx-auto flex" // Added min-w to ensure content is scrollable

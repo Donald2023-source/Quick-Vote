@@ -3,7 +3,7 @@ import { Completed, Pending } from "./State";
 
 const ActviityBar = () => {
   return (
-    <div className="w-[90%] border p-5 my-4 shadow-lg rounded-lg">
+    <div className="w-full border p-5 my-4 shadow-lg rounded-lg">
       <div>
         <div>
           <h2 className="font-semibold text-primary tracking-wider text-center">

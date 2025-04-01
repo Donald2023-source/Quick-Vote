@@ -23,14 +23,14 @@ const Student = () => {
         <div className="flex items-center w-full justify-between">
           <DashboardMessage name={"Donald"} />
         </div>
-        <div className="flex">
-          <div className="w-2/3 flex flex-col gap-4">
-            <div className="shadow overflow-auto w-[90%]">
+        <div className="flex md:flex-row my-5 justify-between gap-5 flex-col w-full">
+          <div className="w-[60%] flex flex-col gap-4">
+            <div className="shadow w-full">
               <Chart />
             </div>
             <ActviityBar />
           </div>
-          <ElectionStats className="flex-1" />
+          <ElectionStats className=" flex-1 w-[30%] border mx-4" />
         </div>
       </div>
     </div>

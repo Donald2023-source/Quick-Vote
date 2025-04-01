@@ -13,7 +13,7 @@ const ElectionStats = ({ className }) => {
       <h2 className="font-semibold text-lg text-primary py-4">
         Voting Process
       </h2>
-      <div className="flex flex-col items-center gap-10">
+      <div className="flex md:flex-col flex-row items-center gap-10">
         <div className="flex flex-col items-center justify-between">
           <Doughnut value={70} />
           <h2 className="font-semibold text-sm w-[70%] text-center text-primary">
