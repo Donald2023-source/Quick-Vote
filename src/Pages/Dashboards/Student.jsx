@@ -1,34 +1,51 @@
+import { Dashboard, Menu } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
-import { Notifications } from "@mui/icons-material";
 import DashboardMessage from "../../Components/DashboardMessage";
 import MyCalendar from "../../Components/Calendar";
 import Chart from "../../Components/BarChart";
 import ActviityBar from "../../Components/ActviityBar";
-import ElectionStats from "../../Components/ElectionStats";
 
 const Student = () => {
   return (
-    <div className="max-w-full overflow-x-hidden">
-      <div className="lg:flex hidden gap-5 items-center justify-end mb-4">
-        <Avatar className="hover:scale-105 hoverEffect cursor-pointer">
-          D
-        </Avatar>
-        <span className="hover:scale-105 hoverEffect cursor-pointer">
-          <Notifications />
-        </span>
-      </div>
-      <div className="flex items-center w-full justify-between">
-        <DashboardMessage name="Donald" />
-      </div>
-      <div className="flex flex-col sm:flex-row my-5 justify-between gap-4 sm:gap-5 w-full max-w-full">
-        <div className="w-full flex flex-col gap-4">
-          <div className="shadow border overflow-x-auto w-full">
-            <Chart />
-          </div>
-          <ActviityBar className="w-full" />
+    <div>
+      <div className="flex items-end justify-end">
+        <div className="flex items-center gap-3 font-semibold">
+          <Avatar>J</Avatar>
+          <p>Juan</p>
+          <Menu className="md:hidden" />
         </div>
-        <ElectionStats className="w-full sm:w-auto border mx-0 sm:mx-4" />
+      </div>
+
+      <div>
+        <h2 className="text-2xl font-bold text-primary">
+          <span className="text-primary/50">Hello,</span> Juan
+        </h2>
+        <p className="text-primary py-2">
+          Welcome to Ivote, Let's help you make the right decision
+        </p>
+      </div>
+      <div className="flex md:flex-row flex-col items-center gap-[5%] max-w-full">
+        {/* This will the the Dashboard-Message and calender */}
+        <div className="md:w-[65%] w-full border">
+          <DashboardMessage name={'Juan'} />
+        </div>
+        <div className="w-full my-4 border flex-1"><MyCalendar /></div>
+      </div>
+
+      <div className="w-full flex gap-[5%] items-center">
+        <div className="w-[65%] flex flex-col gap-8  border">
+          {/* Chart and Activity Bar */}
+          <div>
+          <Chart/>
+          </div>
+          <ActviityBar />
+        </div>
+        
+        <div className="flex-1 border">
+          {/* Election Stats */}
+
+        </div>
       </div>
     </div>
   );

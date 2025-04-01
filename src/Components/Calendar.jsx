@@ -25,12 +25,12 @@ function MyCalendar({ className }) {
   return (
     <div
       className={twMerge(
-        "calendar-container w-full h-full max-w-[400px] mx-auto",
+        "calendar-container w-full h-full mx-auto",
         className
       )}
     >
       <Calendar
-        className="calendar shadow h-full min-h-[200px] rounded-xl py-1 px-2 sm:px-12 font-medium text-xs sm:text-sm"
+        className="calendar shadow h-full min-h-[200px] rounded-xl py-1 font-medium text-xs sm:text-sm"
         onChange={(newDate) => setDate(newDate)}
         value={date}
         tileContent={tileContent}

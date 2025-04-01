@@ -59,11 +59,11 @@ export default function Chart() {
   }, []);
 
   return (
-    <div className="p-3 sm:p-5 h-full overflow-x-auto">
+    <div className=" h-full overflow-x-auto">
       <div className="px-0 mx-0 w-full">
         <ScrollTab />
       </div>
-      <div ref={containerRef} className="w-full min-w-[300px]">
+      <div ref={containerRef} className="w-full">
         <BarChart
           className="h-full w-full py-3 mx-auto"
           width={dimensions.width}

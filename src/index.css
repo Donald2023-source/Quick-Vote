@@ -67,8 +67,7 @@ input[type="number"] {
 .calendar-container {
   /* Add styles for the outer container */
   text-align: center;
-  width: 46%;
-  min-height: 100px;
+  min-height: 150px;
 }
 
 @media (max-width: 768px) {
