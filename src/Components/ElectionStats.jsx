@@ -1,25 +1,40 @@
-import { twMerge } from "tailwind-merge"
-import DonutChart from 'react-donut-chart';
+import { twMerge } from "tailwind-merge";
 
-const ElectionStats = ({className}) => {
-    return (
-        <div className={twMerge('border w-full', className)}>
+import Doughnut from "./Doughnut";
 
-
-<DonutChart
-  data={[
-    {
-      label: 'Give you up',
-      value: 25,
-    },
-    {
-      label: '',
-      value: 75,
-      isEmpty: true,
-    },
-  ]}
-/>;
+const ElectionStats = ({ className }) => {
+  return (
+    <div
+      className={twMerge(
+        "w-full flex shadow rounded-lg flex-col justify-center items-center",
+        className
+      )}
+    >
+      <h2 className="font-semibold text-lg text-primary py-4">
+        Voting Process
+      </h2>
+      <div className="flex flex-col items-center gap-10">
+        <div className="flex flex-col items-center justify-between">
+          <Doughnut value={70} />
+          <h2 className="font-semibold w-[70%] text-center text-primary">
+            Total Number of registered voters
+          </h2>
         </div>
-    )
-}
-export default ElectionStats
+        <div className="flex flex-col items-center justify-center">
+          <Doughnut value={90} />
+          <h2 className="font-semibold w-[70%] text-center text-primary">
+            Total Number of Votes
+          </h2>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <Doughnut value={3} />
+          <h2 className="font-semibold w-[70%] text-center text-primary">
+            Total Number of regustered candidates
+          </h2>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ElectionStats;

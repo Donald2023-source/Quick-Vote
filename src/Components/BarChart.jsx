@@ -61,7 +61,7 @@ export default function Chart() {
   }, []);
 
   return (
-    <div className="p-4 w-[95%] h-full">
+    <div className="p-5  h-full">
       <div className="px-0 mx-0 w-full">
         <ScrollTab />
       </div>

@@ -23,15 +23,14 @@ const Student = () => {
         <div className="flex items-center w-full justify-between">
           <DashboardMessage name={"Donald"} />
         </div>
-        <div className="flex border">
-          <div className="w-full flex flex-col gap-4">
-            <div className="md:w-[63%] shadow overflow-auto w-full">
+        <div className="flex">
+          <div className="w-2/3 flex flex-col gap-4">
+            <div className="shadow overflow-auto w-[90%]">
               <Chart />
             </div>
             <ActviityBar />
           </div>
-          {/* Ensure ElectionStats takes remaining space */}
-          <ElectionStats className="flex-1 w-full" />
+          <ElectionStats className="flex-1" />
         </div>
       </div>
     </div>
