@@ -7,7 +7,7 @@ const ActviityBar = () => {
       <h2 className="font-semibold text-primary tracking-wider text-center text-sm sm:text-base">
         Elections Activity
       </h2>
-      <div className="flex justify-between items-center w-full sm:w-[50%] mx-auto py-2">
+      <div className="flex justify-between items-center w-full mx-auto py-2">
         <Pending />
         <Completed />
       </div>

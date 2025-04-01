@@ -28,7 +28,7 @@ const DashboardMessage = ({ name }) => {
           </div>
           <VotingLoader className="px-0 rounded bg-transparent w-24 sm:w-auto" />
         </div>
-        <MyCalendar className="w-full sm:w-[40%] h-full" />
+        <MyCalendar className="w-full sm:w-[80%] h-full" />
       </div>
     </div>
   );
