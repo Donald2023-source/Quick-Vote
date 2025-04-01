@@ -12,9 +12,12 @@ const Student = () => {
     <div>
       <div>
         <div className="lg:flex hidden gap-5 items-center justify-end">
+          <div className="flex items-center gap-1">
           <Avatar className="hover:scale-105 hoverEffect cursor-pointer">
             D
           </Avatar>
+          <h2>Donald</h2>
+          </div>
           <span className="hover:scale-105 hoverEffect cursor-pointer">
             <Notifications />
           </span>
@@ -24,7 +27,7 @@ const Student = () => {
           <DashboardMessage name={"Donald"} />
         </div>
         <div className="flex md:flex-row my-5 justify-between gap-5 flex-col w-full">
-          <div className="w-[60%] flex flex-col gap-4">
+          <div className="md:w-[60%] flex flex-col gap-4">
             <div className="shadow w-full">
               <Chart />
             </div>
