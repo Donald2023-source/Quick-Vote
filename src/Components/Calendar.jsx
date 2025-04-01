@@ -6,11 +6,10 @@ function MyCalendar({ className }) {
   const [date, setDate] = useState(new Date());
 
   const markedDates = [
-    new Date(2025, 2, 28), // March 28, 2025
-    new Date(2025, 2, 15), // March 15, 2025
+    new Date(2025, 2, 28),
+    new Date(2025, 2, 15),
   ];
 
-  // Function to check if a date is marked
   const tileContent = ({ date, view }) => {
     if (view === "month") {
       const isMarked = markedDates.some(
@@ -23,20 +22,16 @@ function MyCalendar({ className }) {
     }
   };
 
-  const onChange = (newDate) => {
-    setDate(newDate);
-  };
-
   return (
     <div
       className={twMerge(
-        "calendar-container w-full h-full  sm:max-w-sm",
+        "calendar-container w-full h-full max-w-[400px] mx-auto",
         className
       )}
     >
       <Calendar
-        className="calendar shadow h-full rounded-xl py-1 md:px-12  font-medium text-sm"
-        onChange={onChange}
+        className="calendar shadow h-full min-h-[200px] rounded-xl py-1 px-2 sm:px-12 font-medium text-xs sm:text-sm"
+        onChange={(newDate) => setDate(newDate)}
         value={date}
         tileContent={tileContent}
         tileClassName={({ date }) =>
@@ -46,5 +41,4 @@ function MyCalendar({ className }) {
     </div>
   );
 }
-
 export default MyCalendar;
