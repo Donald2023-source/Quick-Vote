@@ -32,7 +32,7 @@ const Sidebar = ({ className }) => {
 
   return (
     <>
-      <div className="md:hidden fixed p-2 top-0 w-full justify-between z-30 flex items-center">
+      <div className="md:hidden fixed bg-white p-2 top-0 w-full justify-between z-30 flex items-center">
         <div>
           <Link to="/student-dashboard">
             <h3 className="text-white bg-primary py-2 px-4 rounded-full w-fit font-bold text-xl">
@@ -49,7 +49,7 @@ const Sidebar = ({ className }) => {
           </Avatar>
           {isOpen === false && (
             <button
-              className=" p-2 rounded-md"
+              className="p-2 rounded-md"
               onClick={() => setIsOpen(!isOpen)}
             >
               <Menu />
@@ -61,15 +61,14 @@ const Sidebar = ({ className }) => {
       {/* Sidebar */}
       <div
         className={twMerge(
-          "fixed md:static inset-y-0 left-0 z-40 transform transition-transform duration-300 ease-in-out",
+          "fixed inset-y-0 left-0 z-40 transform transition-transform duration-300 ease-in-out",
           "bg-white border-r shadow-lg",
           isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0",
-          "md:w-1/5 w-64 h-screen",
+          "w-64 md:w-1/5 h-screen",
           className
         )}
       >
         <aside className="p-5 h-full flex flex-col">
-          {/* Header */}
           <div className="flex items-center justify-between gap-5 mb-8">
             <Link to="/student-dashboard">
               <h3 className="text-white bg-primary py-2 px-4 rounded-full w-fit font-bold text-xl">
@@ -84,7 +83,7 @@ const Sidebar = ({ className }) => {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-4 flex-grow">
+          <nav className="flex flex-col gap-4 overflow-hidden">
             {navItems.map((item, idx) => (
               <Link
                 key={idx}
@@ -105,7 +104,6 @@ const Sidebar = ({ className }) => {
         </aside>
       </div>
 
-      {/* Overlay for mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
