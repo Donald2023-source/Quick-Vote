@@ -70,7 +70,7 @@ export default function Chart() {
         className="w-full " // Changed to overflow-x-auto for horizontal scrolling
       >
         <BarChart
-          className="h-full w-full py-3 min-w-[500px] mx-auto flex" // Added min-w to ensure content is scrollable
+          className="h-full w-full py-3 min-w-[200px] mx-auto flex" // Added min-w to ensure content is scrollable
           width={dimensions.width}
           height={dimensions.height}
           dataset={dataset}

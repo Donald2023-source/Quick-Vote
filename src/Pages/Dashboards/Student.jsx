@@ -12,12 +12,9 @@ const Student = () => {
     <div>
       <div>
         <div className="lg:flex hidden gap-5 items-center justify-end">
-          <div className="flex items-center gap-1">
           <Avatar className="hover:scale-105 hoverEffect cursor-pointer">
             D
           </Avatar>
-          <h2>Donald</h2>
-          </div>
           <span className="hover:scale-105 hoverEffect cursor-pointer">
             <Notifications />
           </span>
