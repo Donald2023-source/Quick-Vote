@@ -11,7 +11,7 @@ const DashboardMessage = ({ name }) => {
             <h4 className="font-semibold text-sm sm:text-lg tracking-wider">
               Ongoing Elections
             </h4>
-            <h2 className="font-bold text-lg sm:text-xl md:text-2xl w-full sm:w-[80%] leading-6 sm:leading-7 text-white">
+            <h2 className="font-bold text-lg sm:text-xl md:text-2xl w-[80%] leading-6 sm:leading-7 text-white">
               President Student Council
             </h2>
             <button className="py-1 sm:py-2 w-fit border bg-gradient-to-r hover:from-primary hover:to-primary/60 hoverEffect hover:text-white hover:scale-105 px-6 sm:px-10 rounded-full mx-auto text-sm sm:text-base">

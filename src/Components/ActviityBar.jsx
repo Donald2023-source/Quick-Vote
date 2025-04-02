@@ -3,7 +3,7 @@
 
   const ActviityBar = () => {
     return (
-      <div className="w-full border p-3 sm:p-5 my-4 shadow-lg rounded-lg">
+      <div className="w-full  p-3 sm:p-5 my-4 shadow-lg rounded-lg">
         <h2 className="font-semibold text-primary tracking-wider text-center text-sm sm:text-base">
           Elections Activity
         </h2>

@@ -4,18 +4,9 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import ScrollTab from "./Tabs";
 
 const dataset = [
-  {
-    candidate: "Joseph Kim",
-    votes: 45,
-  },
-  {
-    candidate: "Gift Jeremiah",
-    votes: 30,
-  },
-  {
-    candidate: "Sunday Micah",
-    votes: 93,
-  },
+  { candidate: "Joseph Kim", votes: 45 },
+  { candidate: "Gift Jeremiah", votes: 30 },
+  { candidate: "Sunday Micah", votes: 93 },
 ];
 
 const valueFormatter = (value) => `${value}`;
@@ -45,11 +36,13 @@ export default function Chart() {
     const updateDimensions = () => {
       if (containerRef.current) {
         const { width } = containerRef.current.getBoundingClientRect();
-        let height = 300; // Smaller default for mobile
-        if (width >= 1024) height = 400; // lg
-        else if (width >= 768) height = 350; // md
-        else if (width < 640) height = 250; // sm
-        setDimensions({ width, height });
+        // Reduce width by capping it or applying a multiplier
+        const constrainedWidth = Math.min(width, width * 0.8); // Reduce width to 80% of container
+        let height = 350; // Increased default height for mobile
+        if (width >= 1024) height = 450; // Increased height for lg
+        else if (width >= 768) height = 400; // Increased height for md
+        else if (width < 640) height = 300; // Increased height for sm
+        setDimensions({ width: constrainedWidth, height });
       }
     };
 
@@ -59,13 +52,13 @@ export default function Chart() {
   }, []);
 
   return (
-    <div className=" h-full overflow-x-auto">
+    <div className="h-full shadow-lg rounded-lg border overflow-x-auto">
       <div className="px-0 mx-0 w-full">
         <ScrollTab />
       </div>
-      <div ref={containerRef} className="w-full">
+      <div ref={containerRef} className="w-full max-w-full mx-auto">
         <BarChart
-          className="h-full w-full py-3 mx-auto"
+          className="h-full w-full py-2 my-4 mx-auto"
           width={dimensions.width}
           height={dimensions.height}
           dataset={dataset}

@@ -6,7 +6,7 @@ const ElectionStats = ({ className }) => {
   return (
     <div
       className={twMerge(
-        "w-full flex shadow rounded-lg flex-col justify-center items-center p-3 sm:p-4",
+        "w-full flex shadow-lg border rounded-lg flex-col justify-center items-center py-9 px-3 h-full",
         className
       )}
     >
