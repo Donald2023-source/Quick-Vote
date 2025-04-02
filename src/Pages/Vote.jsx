@@ -19,7 +19,7 @@ const Vote = () => {
               You can Only Vote for One Candidate
             </p>
           </div>
-          <div>
+          <div className="grid md:grid-cols-3 gap-6">
             {
                 Candidates.map((data) => (
 
