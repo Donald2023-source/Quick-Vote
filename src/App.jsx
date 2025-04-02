@@ -21,6 +21,7 @@ import { setLoading } from "./redux/loadingSlice";
 import Loader from "./Components/Loader";
 import Student from "./Pages/Dashboards/Student";
 import Dashboard from "./Layouts/Dashboard";
+import Vote from "./Pages/Vote";
 
 const Loading = () => <div><Loader /></div>;
 
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/auth/signup/cooperative" element={<Cooperative />} />
           <Route path="/auth/student/login" element={<Login />} />
           <Route path="/auth" element={<Frontpage />} />
+          <Route path="/student/vote" element={<Dashboard><Vote /></Dashboard>} />
           <Route path="/student-dashboard" element={<Dashboard><Student /></Dashboard>} />
           <Route path="/cooperative-dashboard" element={<Dashboard><Cooperative /></Dashboard>} />
           <Route path="/dashboard/:name" element={<OrganizationDashboard />} />
