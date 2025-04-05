@@ -18,7 +18,7 @@ const Sidebar = ({ className }) => {
     { name: "Vote", href: "/student/vote", icon: <HowToVoteIcon /> },
     {
       name: "Voters Guidelines",
-      href: "/voters-guidelines",
+      href: "/voters-guide",
       icon: <LibraryBooksIcon />,
     },
     { name: "Settings", href: "/settings", icon: <Settings /> },

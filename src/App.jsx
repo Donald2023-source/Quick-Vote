@@ -22,6 +22,7 @@ import Loader from "./Components/Loader";
 import Student from "./Pages/Dashboards/Student";
 import Dashboard from "./Layouts/Dashboard";
 import Vote from "./Pages/Vote";
+import VoteGuidelines from "./Pages/VoteGuidelines";
 
 const Loading = () => <div><Loader /></div>;
 
@@ -63,6 +64,7 @@ const App = () => {
           <Route path="/student-dashboard" element={<Dashboard><Student /></Dashboard>} />
           <Route path="/cooperative-dashboard" element={<Dashboard><Cooperative /></Dashboard>} />
           <Route path="/dashboard/:name" element={<OrganizationDashboard />} />
+          <Route path="/voters-guide" element={<Dashboard><VoteGuidelines /></Dashboard>} />
         </Routes>
       )
     }

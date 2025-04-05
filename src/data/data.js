@@ -51,3 +51,17 @@ export const Candidates = {
     }
   ]
 };
+
+export const Guidelines = [
+  { id: 1, text: 'You can only vote for one candidate in each category.' },
+  { id: 2, text: 'Make sure to review your selections before submitting your vote.' },
+  { id: 3, text: 'Voting is limited to one submission per person.' },
+  { id: 4, text: 'Votes submitted after the deadline will not be counted.' },
+  { id: 5, text: 'You must be logged in to cast your vote.' },
+  { id: 6, text: 'Once submitted, your vote cannot be changed.' },
+  { id: 7, text: 'Any attempt to manipulate the voting process will result in disqualification.' },
+  { id: 8, text: 'All personal data will be kept confidential and used solely for verification purposes.' },
+  { id: 9, text: 'Voting categories are subject to change at the discretion of the organizers.' },
+  { id: 10, text: 'Candidates are not allowed to campaign on the voting platform.' },
+  { id: 11, text: 'The results will be announced on the official website after the voting ends.' },
+];
