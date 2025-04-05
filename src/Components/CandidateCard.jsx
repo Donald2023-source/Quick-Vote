@@ -34,7 +34,7 @@ const CandidateCard = ({ data, onClick }) => {
         <div className="flex md:flex-row flex-col items-center md:gap-9 gap-3 py-3">
           <button
             onClick={handleClick}
-            className="border rounded-2xl text-sm bg-primary text-white hover:scale-105 hoverEffect py-2 px-8"
+            className="border  text-sm bg-primary text-white hover:scale-105 hoverEffect py-2 px-8"
           >
             Vote
           </button>
@@ -43,14 +43,14 @@ const CandidateCard = ({ data, onClick }) => {
 
       {/* Modal and Backdrop */}
       {isVisible && (
-        <div className="fixed border  inset-0 z-50 flex items-center justify-center">
+        <div className="fixed  inset-0 z-50 flex items-center justify-center">
           {/* Backdrop */}
           <div
             className="absolute w-full inset-0 bg-black opacity-50"
             onClick={handleClose} // Click backdrop to close
           />
           {/* Modal */}
-          <div className="relative bg-white border w-[60%] shadow-lg rounded-lg">
+          <div className="relative bg-white w-[60%] shadow-lg rounded-lg">
             <CandidateDetails data={data} onClose={handleClose} />
           </div>
         </div>
