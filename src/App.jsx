@@ -19,6 +19,7 @@ import Vote from "./Pages/Vote";
 import VoteGuidelines from "./Pages/VoteGuidelines";
 import CooperativeDashboard from "./Pages/Dashboards/CooperativeDashboard";
 import { useLocation } from "react-router-dom";
+import OrganizationLayout from "./Layouts/OrganizationLayout";
 
 const Loading = () => (
   <div>
@@ -82,7 +83,14 @@ const AppContent = () => {
               </Dashboard>
             }
           />
-          <Route path="/dashboard/:name" element={<OrganizationDashboard />} />
+          <Route
+            path="/dashboard/:name"
+            element={
+              <OrganizationLayout>
+                <OrganizationDashboard />
+              </OrganizationLayout>
+            }
+          />
           <Route
             path="/voters-guide"
             element={
@@ -98,11 +106,7 @@ const AppContent = () => {
 };
 
 const App = () => {
-  return (
-  
-      <AppContent />
-    
-  );
+  return <AppContent />;
 };
 
 export default App;
