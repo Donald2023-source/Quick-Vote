@@ -1,27 +1,30 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
-import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import { Menu, Settings } from "@mui/icons-material";
+import { CandlestickChartTwoTone, Menu, Settings } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 
-
-const OraganizationSidebar = ({ className }) => {
+const OrganizationSidebar = ({ className, orgName }) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const path = useLocation();
-  
-  const role = path.pathname.split("/")[1].replace("dashboard", "").replace("-", "")
-  
+  const location = useLocation();
+
+  const role = orgName || "organization";
 
   const navItems = [
     {
       name: "Dashboard",
-      href: "/student-dashboard",
+      href: `/dashboard/${role}`, // Use orgName as part of the route
       icon: <SpaceDashboardIcon />,
     },
-    { name: "Vote", href: `/${role}/vote`, icon: <HowToVoteIcon /> },
+
+    {
+      name: "Candidates",
+      href: "/candidates", // Use orgName as part of the route
+      icon: <CandlestickChartTwoTone />,
+    },
+
     {
       name: "Voters Guidelines",
       href: "/voters-guide",
@@ -30,16 +33,15 @@ const OraganizationSidebar = ({ className }) => {
     { name: "Settings", href: "/settings", icon: <Settings /> },
   ];
 
-
   React.useEffect(() => {
     setIsOpen(false);
-  }, [path]);
+  }, [location]);
 
   return (
     <>
       <div className="md:hidden fixed bg-white p-2 top-0 w-full justify-between z-30 flex items-center">
         <div>
-          <Link to="/student-dashboard">
+          <Link to={`/dashboard/${role}`}>
             <h3 className="text-white bg-primary py-2 px-4 rounded-full w-fit font-bold text-xl">
               <span className="text-blue-400">I</span>vote
             </h3>
@@ -50,9 +52,9 @@ const OraganizationSidebar = ({ className }) => {
             className="hover:scale-105 hoverEffect cursor-pointer"
             sx={{ width: 30, height: 30, fontSize: 14 }}
           >
-            D
+            {orgName ? orgName[0].toUpperCase() : "O"} {/* Dynamic initial */}
           </Avatar>
-          {isOpen === false && (
+          {!isOpen && (
             <button
               className="p-2 rounded-md"
               onClick={() => setIsOpen(!isOpen)}
@@ -63,7 +65,6 @@ const OraganizationSidebar = ({ className }) => {
         </div>
       </div>
 
-      {/* Sidebar */}
       <div
         className={twMerge(
           "fixed inset-y-0 left-0 z-40 transform transition-transform duration-300 ease-in-out",
@@ -75,7 +76,7 @@ const OraganizationSidebar = ({ className }) => {
       >
         <aside className="p-5 h-full flex flex-col">
           <div className="flex items-center justify-between gap-5 mb-8">
-            <Link to="/student-dashboard">
+            <Link to={`/dashboard/${role}`}>
               <h3 className="text-white bg-primary py-2 px-4 rounded-full w-fit font-bold text-xl">
                 <span className="text-blue-400">I</span>vote
               </h3>
@@ -95,7 +96,7 @@ const OraganizationSidebar = ({ className }) => {
                 to={item.href}
                 className={twMerge(
                   "flex items-center gap-4 py-2 px-4 rounded-lg transition-all duration-200",
-                  path.pathname === item.href
+                  location.pathname === item.href
                     ? "bg-primary text-white font-semibold"
                     : "text-gray-700 hover:bg-primary hover:text-white"
                 )}
@@ -119,4 +120,4 @@ const OraganizationSidebar = ({ className }) => {
   );
 };
 
-export default OraganizationSidebar;
+export default OrganizationSidebar;

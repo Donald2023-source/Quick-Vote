@@ -20,6 +20,7 @@ import VoteGuidelines from "./Pages/VoteGuidelines";
 import CooperativeDashboard from "./Pages/Dashboards/CooperativeDashboard";
 import { useLocation } from "react-router-dom";
 import OrganizationLayout from "./Layouts/OrganizationLayout";
+import AddCandidate from "./Components/AddCandidate";
 
 const Loading = () => (
   <div>
@@ -91,6 +92,15 @@ const AppContent = () => {
               </OrganizationLayout>
             }
           />
+          <Route
+            path="/candidates"
+            element={
+              <OrganizationLayout>
+                <AddCandidate />
+              </OrganizationLayout>
+            }
+          />
+
           <Route
             path="/voters-guide"
             element={
