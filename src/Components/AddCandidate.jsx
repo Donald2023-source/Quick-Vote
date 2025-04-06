@@ -1,6 +1,7 @@
 import { Plus } from 'lucide-react'
 import React from 'react'
-
+import {Candidates} from '../data/data'
+import CandidateCard from './CandidateCard'
 const AddCandidate = () => {
   return (
     <div>
@@ -11,12 +12,16 @@ const AddCandidate = () => {
             <h2>Add Candidate</h2>
             </div>
 
-            <div>
+        </div>
+            <div className='grid md:grid-cols-3 gap-8'>
                 {
-                    
+                    Candidates.President.map((candidate, index) => (
+                        <div>
+                            <CandidateCard btnText={'View Details'} key={index} data={candidate} onClick={(data) => console.log(data)} />
+                        </div>
+                    ))
                 }
             </div>
-        </div>
       </div>
     </div>
   )

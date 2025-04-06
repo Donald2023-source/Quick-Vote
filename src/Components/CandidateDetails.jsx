@@ -28,7 +28,7 @@ const CandidateDetails = ({ data, onClose }) => {
       </div>
 
       <div className="leading-8 py-1">{data.manifesto}</div>
-      <Button className={'w-fit flex items-center justify-center mx-auto'}>Vote</Button>
+      <Button className={'w-fit flex items-center justify-center'}>Vote</Button>
     </div>
   );
 };

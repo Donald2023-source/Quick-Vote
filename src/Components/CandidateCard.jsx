@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CandidateDetails from "./CandidateDetails";
 
-const CandidateCard = ({ data, onClick }) => {
+const CandidateCard = ({ data, onClick, btnText }) => {
   const [isVisible, setIsVisible] = useState(false); // Fixed typo: isVsible -> isVisible
 
   const handleClick = () => {
@@ -34,9 +34,9 @@ const CandidateCard = ({ data, onClick }) => {
         <div className="flex md:flex-row flex-col items-center md:gap-9 gap-3 py-3">
           <button
             onClick={handleClick}
-            className="border  text-sm bg-primary text-white hover:scale-105 hoverEffect py-2 px-8"
+            className="border  text-sm bg-primary rounded-lg text-white hover:scale-105 hoverEffect py-2 px-8"
           >
-            Vote
+            {btnText}
           </button>
         </div>
       </div>
@@ -48,6 +48,7 @@ const CandidateCard = ({ data, onClick }) => {
           <div
             className="absolute w-full inset-0 bg-black opacity-50"
             onClick={handleClose} // Click backdrop to close
+            
           />
           {/* Modal */}
           <div className="relative bg-white w-[60%] shadow-lg rounded-lg">
