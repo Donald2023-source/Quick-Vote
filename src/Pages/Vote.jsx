@@ -45,11 +45,10 @@ const Vote = () => {
             </h2>
             <div className="grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-3 py-4">
               {Candidates.VicePresident.map((data) => (
-                <CandidateCard
-                 
+                <CandidateCard 
                   key={data.image} // Consider using a unique id if available
                   data={data}
-                  
+                  onClick={handleClick}
                 />
               ))}
             </div>
@@ -62,9 +61,9 @@ const Vote = () => {
             <div className="grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-3 py-4">
               {Candidates.VicePresident.map((data) => (
                 <CandidateCard
-                 
                   key={data.image}
                   data={data}
+                  onClick={handleClick}
                 />
               ))}
             </div>

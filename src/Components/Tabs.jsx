@@ -3,19 +3,14 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 
-export default function ScrollTab() {
+export default function ScrollTab({Posts}) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const Posts = [
-    "President Student Council",
-    "Student Post 2",
-    "Student Post 3",
-    "Student Post 4",
-  ];
+  
 
   return (
     <Box >

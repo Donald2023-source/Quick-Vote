@@ -1,21 +1,27 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import { Menu, Settings } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 
+
 const Sidebar = ({ className }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const path = useLocation();
+  
+  const role = path.pathname.split("/")[1].replace("dashboard", "").replace("-", "")
+  
+
   const navItems = [
     {
       name: "Dashboard",
       href: "/student-dashboard",
       icon: <SpaceDashboardIcon />,
     },
-    { name: "Vote", href: "/student/vote", icon: <HowToVoteIcon /> },
+    { name: "Vote", href: `/${role}/vote`, icon: <HowToVoteIcon /> },
     {
       name: "Voters Guidelines",
       href: "/voters-guide",
@@ -24,7 +30,6 @@ const Sidebar = ({ className }) => {
     { name: "Settings", href: "/settings", icon: <Settings /> },
   ];
 
-  const path = useLocation();
 
   React.useEffect(() => {
     setIsOpen(false);

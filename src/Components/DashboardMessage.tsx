@@ -2,7 +2,7 @@ import React from "react";
 import VotingLoader from "./CastLoader";
 import MyCalendar from "./Calendar";
 
-const DashboardMessage = ({ name }) => {
+const DashboardMessage = ({ name, post }) => {
   return (
     <div className="w-full">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 sm:gap-6">
@@ -12,7 +12,7 @@ const DashboardMessage = ({ name }) => {
               Ongoing Elections
             </h4>
             <h2 className="font-bold text-lg sm:text-xl md:text-2xl w-[80%] leading-6 sm:leading-7 text-white">
-              President Student Council
+              {post}
             </h2>
             <button className="py-1 sm:py-2 w-fit border bg-gradient-to-r hover:from-primary hover:to-primary/60 hoverEffect hover:text-white hover:scale-105 px-6 sm:px-10 rounded-full mx-auto text-sm sm:text-base">
               Vote now

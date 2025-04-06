@@ -7,14 +7,14 @@ import Chart from "../../Components/BarChart";
 import ActviityBar from "../../Components/ActviityBar";
 import ElectionStats from "../../Components/ElectionStats";
 
-const Student = () => {
-  const Posts = [
-    "President Student Council",
-    "Student Post 2",
-    "Student Post 3",
-    "Student Post 4",
-  ];
+const CooperativeDashboard = () => {
 
+  const Posts = [
+    "President Cooperative Council",
+    "Cooperative Post 2",
+    "Cooperative Post 3",
+    "Cooperative Post 4",
+  ];
   return (
     <div className="flex flex-col gap-6">
       <div>
@@ -28,7 +28,7 @@ const Student = () => {
       <div className="flex md:flex-row flex-col items-center gap-[5%] max-w-full">
         {/* This will the the Dashboard-Message and calender */}
         <div className="md:w-[65%] w-full">
-          <DashboardMessage post={"President Student Council"} name={"Juan"} />
+          <DashboardMessage post={'President Cooperative Council'} name={"James"} />
         </div>
         <div className="w-full my-4 flex-1">
           <MyCalendar />
@@ -53,4 +53,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default CooperativeDashboard;

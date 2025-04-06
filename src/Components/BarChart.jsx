@@ -28,7 +28,7 @@ const chartSetting = {
   ],
 };
 
-export default function Chart() {
+export default function Chart({Posts}) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const containerRef = useRef(null);
 
@@ -51,10 +51,12 @@ export default function Chart() {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
+  
+
   return (
     <div className="h-full shadow-lg rounded-lg border overflow-x-auto">
       <div className="px-0 mx-0 w-full">
-        <ScrollTab />
+        <ScrollTab Posts={Posts} />
       </div>
       <div ref={containerRef} className="w-full max-w-full mx-auto">
         <BarChart
