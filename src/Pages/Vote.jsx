@@ -35,6 +35,7 @@ const Vote = () => {
                 onClick={handleClick}
                 key={data.image} // Consider using a unique id if available
                 data={data}
+                btnText={'Vote'}
               />
             ))}
           </div>
@@ -49,6 +50,7 @@ const Vote = () => {
                   key={data.image} // Consider using a unique id if available
                   data={data}
                   onClick={handleClick}
+                  btnText={'Vote'}
                 />
               ))}
             </div>
@@ -64,6 +66,7 @@ const Vote = () => {
                   key={data.image}
                   data={data}
                   onClick={handleClick}
+                  btnText={'Vote'}
                 />
               ))}
             </div>
