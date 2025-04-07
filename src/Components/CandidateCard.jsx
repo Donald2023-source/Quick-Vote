@@ -51,7 +51,7 @@ const CandidateCard = ({ data, onClick, btnText }) => {
             
           />
           {/* Modal */}
-          <div className="relative bg-white w-[60%] shadow-lg rounded-lg">
+          <div className="relative bg-white md:w-[60%] w-[90%] md:h-[95%] h-[70%] md:overflow-hidden overflow-auto shadow-lg rounded-lg">
             <CandidateDetails data={data} onClose={handleClose} />
           </div>
         </div>

@@ -7,10 +7,17 @@ const Vote = () => {
   
   const [selectedCandidate, setSelectedCandidate] = useState(null);
 
+  const fetchCandidates = () => {
+    // Fetch candidates from the server or any other source
+    //Wherever you see Candidates, you can replace it with the fetched data
+    return Candidates;
+  }
+
   const handleClick = (candidate) => {
       setSelectedCandidate(candidate);
       console.log(selectedCandidate)
   };
+
 
   return (
     <div>
@@ -33,7 +40,7 @@ const Vote = () => {
             {Candidates.President.map((data) => (
               <CandidateCard
                 onClick={handleClick}
-                key={data.image} // Consider using a unique id if available
+                key={data.image}
                 data={data}
                 btnText={'Vote'}
               />
