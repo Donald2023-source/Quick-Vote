@@ -20,6 +20,8 @@ const Organization = () => {
         "Student Post 3",
         "Student Post 4",
       ];
+
+      //Pass in the organization.name where you see params.name
     return <div>
     
         <div>

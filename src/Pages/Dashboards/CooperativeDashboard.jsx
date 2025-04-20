@@ -9,6 +9,7 @@ import ElectionStats from "../../Components/ElectionStats";
 
 const CooperativeDashboard = () => {
 
+  //fetch Posts
   const Posts = [
     "President Cooperative Council",
     "Cooperative Post 2",
@@ -39,7 +40,7 @@ const CooperativeDashboard = () => {
         <div className="md:w-[65%] flex flex-col gap-8">
           {/* Chart and Activity Bar */}
           <div>
-            <Chart Posts={Posts} />
+            <Chart Posts={Posts} /> 
           </div>
           <ActviityBar />
         </div>

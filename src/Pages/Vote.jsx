@@ -4,20 +4,18 @@ import { Candidates } from "../data/data";
 import CandidateDetails from "../Components/CandidateDetails";
 
 const Vote = () => {
-  
   const [selectedCandidate, setSelectedCandidate] = useState(null);
 
   const fetchCandidates = () => {
     // Fetch candidates from the server or any other source
     //Wherever you see Candidates, you can replace it with the fetched data
     return Candidates;
-  }
-
-  const handleClick = (candidate) => {
-      setSelectedCandidate(candidate);
-      console.log(selectedCandidate)
   };
 
+  const handleClick = (candidate) => {
+    setSelectedCandidate(candidate);
+    console.log(selectedCandidate);
+  };
 
   return (
     <div>
@@ -34,7 +32,6 @@ const Vote = () => {
             <p className="text-primary text-sm border-b pb-2">
               You can Only Vote for One Candidate
             </p>
-           
           </div>
           <div className="grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-3 py-4">
             {Candidates.President.map((data) => (
@@ -42,7 +39,7 @@ const Vote = () => {
                 onClick={handleClick}
                 key={data.image}
                 data={data}
-                btnText={'Vote'}
+                btnText={"Vote"}
               />
             ))}
           </div>
@@ -53,11 +50,11 @@ const Vote = () => {
             </h2>
             <div className="grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-3 py-4">
               {Candidates.VicePresident.map((data) => (
-                <CandidateCard 
+                <CandidateCard
                   key={data.image} // Consider using a unique id if available
                   data={data}
                   onClick={handleClick}
-                  btnText={'Vote'}
+                  btnText={"Vote"}
                 />
               ))}
             </div>
@@ -73,12 +70,11 @@ const Vote = () => {
                   key={data.image}
                   data={data}
                   onClick={handleClick}
-                  btnText={'Vote'}
+                  btnText={"Vote"}
                 />
               ))}
             </div>
           </div>
-          
         </div>
       </div>
     </div>

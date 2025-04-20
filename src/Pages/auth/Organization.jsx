@@ -18,12 +18,11 @@ const Organization = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // ✅ Validate uniqueId only when input field is updated
     if (name === "uniqueId") {
       if (!alphanumericRegex.test(value)) {
         setError("ID must include both letters and numbers (A,a,1).");
       } else {
-        setError(""); // Clear error when valid
+        setError(""); 
       }
     }
   };

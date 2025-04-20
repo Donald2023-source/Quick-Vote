@@ -2,7 +2,11 @@ import * as React from "react";
 import { useState, useEffect, useRef } from "react";
 import { BarChart } from "@mui/x-charts/BarChart";
 import ScrollTab from "./Tabs";
+import { useFetch } from "../Hooks/useFetch";
 
+//Substitute this with your actual data fetching logic
+const { data } = useFetch("link to fetch votes ");
+//check for the different data according to the posts
 const dataset = [
   { candidate: "Joseph Kim", votes: 45 },
   { candidate: "Gift Jeremiah", votes: 30 },
@@ -28,7 +32,7 @@ const chartSetting = {
   ],
 };
 
-export default function Chart({Posts}) {
+export default function Chart({ Posts }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const containerRef = useRef(null);
 
@@ -36,12 +40,11 @@ export default function Chart({Posts}) {
     const updateDimensions = () => {
       if (containerRef.current) {
         const { width } = containerRef.current.getBoundingClientRect();
-        // Reduce width by capping it or applying a multiplier
-        const constrainedWidth = Math.min(width, width * 0.8); // Reduce width to 80% of container
-        let height = 350; // Increased default height for mobile
-        if (width >= 1024) height = 450; // Increased height for lg
-        else if (width >= 768) height = 400; // Increased height for md
-        else if (width < 640) height = 300; // Increased height for sm
+        const constrainedWidth = Math.min(width, width * 0.8);
+        let height = 350;
+        if (width >= 1024) height = 450;
+        else if (width >= 768) height = 400;
+        else if (width < 640) height = 300;
         setDimensions({ width: constrainedWidth, height });
       }
     };
@@ -50,8 +53,6 @@ export default function Chart({Posts}) {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
-
-  
 
   return (
     <div className="h-full shadow-lg rounded-lg border overflow-x-auto">

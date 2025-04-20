@@ -6,6 +6,8 @@ import MyCalendar from "../../Components/Calendar";
 import Chart from "../../Components/BarChart";
 import ActviityBar from "../../Components/ActviityBar";
 import ElectionStats from "../../Components/ElectionStats";
+import { useFetch } from "../../Hooks/useFetch";
+
 
 const Student = () => {
   const Posts = [
@@ -14,6 +16,8 @@ const Student = () => {
     "Student Post 3",
     "Student Post 4",
   ];
+
+  const { data} = useFetch('link to fetch posts')
 
   return (
     <div className="flex flex-col gap-6">

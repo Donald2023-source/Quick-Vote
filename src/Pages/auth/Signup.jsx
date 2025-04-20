@@ -14,8 +14,8 @@ import { Link } from "react-router-dom";
 const Signup = () => {
   const [states, setStates] = useState([]);
   const [LGA, setLGA] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // fetch States and LGA using axios
   const fetchStates = async () => {
     try {
       const response = await axios.get(
@@ -40,7 +40,7 @@ const Signup = () => {
 
   useEffect(() => {
     fetchStates();
-    //check, if state of origin has been selected, only then can the LGA be fetched
+
     if (formData.stateOfOrigin !== "") {
       fetchLGA();
     }
@@ -59,8 +59,36 @@ const Signup = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value })); //handle user input
+    setFormData((prev) => ({ ...prev, [name]: value }));
     console.log(formData);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setLoading(true);
+    try {
+      const data = axios.post("link to api", {
+        Headers: {
+          "Content-Type": "application/json",
+        },
+        body: formData,
+      });
+      const response = await data.json();
+      console.log(response);
+      if (response.status === 200) {
+        setLoading(false);
+        console.log("Signup successful");
+      } else {
+        setLoading(false);
+        console.error("Signup failed");
+      }
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -76,6 +104,7 @@ const Signup = () => {
       <div className="flex-1 w-full h-full flex items-center flex-col justify-center my-auto">
         <div className="h-full w-full flex flex-col items-center justify-center">
           <form
+            onSubmit={handleSubmit}
             className="h-full w-[100%] md:w-[70%] py-4 rounded-lg shadow-xl flex flex-col gap-8 px-5 items-center justify-center"
             action=""
           >
